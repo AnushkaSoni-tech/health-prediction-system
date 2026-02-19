@@ -40,7 +40,7 @@ preference = st.selectbox(
 
 experience = st.selectbox(
     "Fitness Experience (years)",
-    [1, 2, 3"],
+    [1, 2, 3],
     index=None,
     placeholder="Select experience"
 )
@@ -65,3 +65,4 @@ if st.button("Submit"):
 
     
                   
+
