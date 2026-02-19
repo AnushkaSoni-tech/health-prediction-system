@@ -26,6 +26,29 @@ def remove_non_meal_foods(df):
     pattern='|'.join(blacklist)
     return df[~df["food"].str.contains(pattern, case=False, na=False)]
 
+
+def classify_food(food):
+    food = str(food).lower()
+
+    if any(x in food for x in ["chicken","egg","fish","meat","paneer","dal"]):
+        return "protein"
+
+    elif any(x in food for x in ["rice","roti","bread","oats","poha","upma"]):
+        return "carb"
+
+    elif any(x in food for x in ["salad","spinach","broccoli","vegetable","sabzi"]):
+        return "vegetable"
+
+    elif any(x in food for x in ["apple","banana","fruit","orange","papaya"]):
+        return "fruit"
+
+    elif any(x in food for x in ["oil","butter","ghee","cheese","nuts"]):
+        return "fat"
+
+    else:
+        return "other"
+
+
 # ---------------- TDEE ----------------
 def calculate_tdee(age, gender, weight_kg, height_cm, activity_level):
 
@@ -195,5 +218,6 @@ if st.sidebar.button("Generate Plan"):
     for meal,data in result["Meals"].items():
         st.write(f"### {meal}")
         st.dataframe(data)
+
 
 
