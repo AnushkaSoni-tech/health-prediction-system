@@ -67,6 +67,29 @@ def calculate_tdee(age, gender, weight_kg, height_cm, activity_level):
 
     return bmr*multipliers[activity_level]
 
+def compute_health_score(row, goal="maintenance"):
+    score = 0
+
+    protein = row.get("Protein",0)
+    fat = row.get("Fat",0)
+    carbs = row.get("Carbohydrates",0)
+    sugar = row.get("Sugars",0)
+    calories = row.get("Caloric Value",0)
+
+    # base scoring
+    score += protein * 2
+    score -= fat * 0.5
+    score -= sugar * 1.5
+
+    # goal adjustments
+    if goal == "weight_loss":
+        score -= calories * 0.02
+    elif goal == "weight_gain":
+        score += calories * 0.02
+
+    return score
+
+
 # ---------------- EXERCISE MODEL ----------------
 def generate_exercise_plan(user_input):
 
@@ -218,6 +241,7 @@ if st.sidebar.button("Generate Plan"):
     for meal,data in result["Meals"].items():
         st.write(f"### {meal}")
         st.dataframe(data)
+
 
 
 
