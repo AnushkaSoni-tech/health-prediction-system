@@ -1,8 +1,30 @@
 import streamlit as st
 
-st.set_page_config(page_title="Health Prediction System", page_icon="🩺")
+import streamlit as st
+import base64
 
-st.title("Health Prediction System")
+st.set_page_config(page_title="Health Recommendation System", layout="centered")
+
+def set_bg(image_file):
+    with open(image_file, "rb") as f:
+        encoded = base64.b64encode(f.read()).decode()
+    
+    page_bg_img = f"""
+    <style>
+    .stApp {{
+        background-image: url("data:image/png;base64,{encoded}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+    </style>
+    """
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
+set_bg("background.png")
+
+st.title("Health Recommendation System")
+
 
 
 
@@ -65,4 +87,5 @@ if st.button("Submit"):
 
     
                   
+
 
