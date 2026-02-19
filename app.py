@@ -76,7 +76,7 @@ def generate_exercise_plan(user_input):
 # ---------------- MAIN SYSTEM ----------------
 def health_fitness_system(age, gender, weight, height, activity_level, goal):
 
-    df = pd.read_csv("final_ind.csv")
+    df = pd.read_csv("final_dataset.csv")
     df = remove_non_meal_foods(df)
 
     bmi = bmi_class(weight,height)
@@ -151,3 +151,4 @@ if st.sidebar.button("Generate Plan"):
     for meal,data in result["Meals"].items():
         st.write(f"### {meal}")
         st.dataframe(data)
+
