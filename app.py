@@ -21,7 +21,7 @@ def set_bg(image_file):
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_bg("background.png")
+set_bg("background.png.png")
 
 st.title("Health Recommendation System")
 
@@ -87,5 +87,6 @@ if st.button("Submit"):
 
     
                   
+
 
 
