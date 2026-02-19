@@ -55,7 +55,38 @@ def generate_exercise_plan(user_input):
     freq_scaler = joblib.load("scaler_freq.pkl")
     freq_encoder = joblib.load("label_encoder_freq.pkl")
 
-    arr = np.array([list(user_input.values())])
+    # encode categorical variables SAME AS TRAINING
+    gender = 1 if user_input["gender"].lower()=="male" else 0
+
+    activity_map = {
+        "sedentary":0,
+        "light":1,
+        "moderate":2,
+        "active":3,
+        "very_active":4
+    }
+
+    goal_map = {
+        "weight_loss":0,
+        "maintenance":1,
+        "weight_gain":2
+    }
+
+    pref_map = {
+        "veg":0,
+        "nonveg":1
+    }
+
+    arr = np.array([[
+        user_input["age"],
+        gender,
+        user_input["weight"],
+        user_input["height"],
+        activity_map[user_input["activity_level"]],
+        goal_map[user_input["goal"]],
+        pref_map[user_input["preference"]],
+        user_input["experience"]
+    ]])
 
     w_scaled = workout_scaler.transform(arr)
     f_scaled = freq_scaler.transform(arr)
@@ -74,43 +105,56 @@ def generate_exercise_plan(user_input):
     }
 
 # ---------------- MAIN SYSTEM ----------------
-def health_fitness_system(age, gender, weight, height, activity_level, goal):
+def health_fitness_system(age, gender, weight, height, activity_level, goal,
+                          preference=None, experience=1, mode="normal", conditions=None):
 
-    df = pd.read_csv("final_dataset.csv")
+    import pandas as pd
+    import os
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    df = pd.read_csv(os.path.join(BASE_DIR,"final_dataset.csv"))
+
     df = remove_non_meal_foods(df)
 
-    bmi = bmi_class(weight,height)
-    calories = calculate_tdee(age, gender, weight, height, activity_level)
+    df["category"] = df["food"].apply(classify_food)
 
-    # goal adjust
-    if goal=="Weight Loss":
-        calories*=0.8
-    elif goal=="Muscle Gain":
-        calories*=1.15
+    df["health_score"] = df.apply(
+        lambda row: compute_health_score(row, goal=goal),
+        axis=1
+    )
 
-    # simple meal selection (top calories match)
-    df = df.sort_values("Caloric Value")
+    df = df.sort_values("health_score", ascending=False)
 
-    breakfast=df.sample(3)
-    lunch=df.sample(3)
-    dinner=df.sample(3)
+    bmi_value = weight / ((height/100) ** 2)
+    bmi_category = bmi_class(weight, height)
 
-    exercise=generate_exercise_plan({
-        "age":age,
-        "weight":weight,
-        "height":height,
-        "activity": ["sedentary","light","moderate","active","very_active"].index(activity_level)
+    exercise_plan = generate_exercise_plan({
+        "age": age,
+        "gender": gender,
+        "weight": weight,
+        "height": height,
+        "activity_level": activity_level,
+        "goal": goal,
+        "preference": preference,
+        "experience": experience
     })
 
+    tdee = calculate_tdee(age, gender, weight, height, activity_level)
+    daily_cal = adjust_calories(tdee, goal)
+
+    diet_plan = diet_planner(
+        df=df,
+        daily_cal=daily_cal,
+        mode=mode,
+        conditions=conditions,
+        goal=goal,
+        dietary_preference=preference
+    )
+
     return {
-        "BMI":bmi,
-        "Calories":int(calories),
-        "Exercise":exercise,
-        "Meals":{
-            "Breakfast":breakfast,
-            "Lunch":lunch,
-            "Dinner":dinner
-        }
+        "BMI Class": bmi_category,
+        "Exercise Plan": exercise_plan,
+        "Recommended Diet": diet_plan
     }
 
 # ---------------- STREAMLIT UI ----------------
@@ -151,4 +195,5 @@ if st.sidebar.button("Generate Plan"):
     for meal,data in result["Meals"].items():
         st.write(f"### {meal}")
         st.dataframe(data)
+
 
