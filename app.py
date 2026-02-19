@@ -1,7 +1,7 @@
-@'
 import streamlit as st
 
 st.set_page_config(page_title="Health Prediction System", page_icon="🩺", layout="centered")
+
 st.title("Health Prediction System")
 st.write("Enter your details to calculate BMI and BMI Category.")
 
@@ -23,4 +23,3 @@ if st.button("Predict"):
     bmi = weight / (height ** 2)
     st.subheader(f"BMI: {bmi:.2f}")
     st.success(f"Category: {bmi_category(bmi)}")
-'@ | Set-Content -Encoding UTF8 app.py
