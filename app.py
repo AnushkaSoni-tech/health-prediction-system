@@ -35,7 +35,7 @@ def load_data():
     return df
 
 # -------------------------------------------------------------------
-# 2. ALL HELPER FUNCTIONS (unchanged)
+# 2. ALL HELPER FUNCTIONS (unchanged – keep your existing implementations)
 # -------------------------------------------------------------------
 def bmi_class(weight, height):
     bmi = weight / ((height/100) ** 2)
@@ -167,83 +167,31 @@ meal_allowed_categories = {
     "snacks":    ["fruit", "vegetable", "protein_lean", "carb_complex"]
 }
 
-def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goal="weight_loss"):
-    # (function unchanged – keep your existing build_meal code)
-    # ... (insert your build_meal function here)
-    # For brevity, I'm not repeating the entire function – copy it from your previous code.
-    # Make sure it's exactly as before.
-    pass
-
-def diet_planner(df, daily_cal, activity_level=None,
-                 mode="normal", conditions=None,
-                 goal="maintenance", preference=None):
-    # (function unchanged – keep your existing diet_planner)
-    pass
-
-def generate_exercise_plan(user_input, models):
-    # (function unchanged – keep your existing generate_exercise_plan)
-    pass
-
-def recommend_yoga(experience_level, goal, age=None):
-    # (function unchanged – keep your existing recommend_yoga)
-    pass
-
-def health_fitness_system(age, gender, weight, height, activity_level, goal_display,
-                          preference, experience, mode_display, conditions, df, models):
-    # Map display goal to internal string
-    goal_map = {
-        "Weight Loss": "weight_loss",
-        "Weight Gain": "muscle_gain",
-        "Muscle Gain": "muscle_gain",
-        "Maintenance": "maintenance"
-    }
-    goal = goal_map[goal_display]
-
-    mode_map = {
-        "Normal": "normal",
-        "High Protein": "high_protein",
-        "Low Carb": "low_carb"
-    }
-    mode = mode_map[mode_display]
-
-    gender_num = 1 if gender.lower() == 'male' else 0
-    bmi_value = weight / ((height/100) ** 2)
-    bmi_category = bmi_class(weight, height)
-
-    exercise_plans = generate_exercise_plan([age, gender_num, bmi_value, experience], models)
-
-    tdee = calculate_tdee(age, gender, weight, height, activity_level)
-    daily_cal = adjust_calories(tdee, goal)
-    diet_plan = diet_planner(
-        df=df,
-        daily_cal=daily_cal,
-        mode=mode,
-        conditions=conditions,
-        goal=goal,
-        preference=preference
-    )
-
-    return {
-        "BMI Class": bmi_category,
-        "Exercise Plans": exercise_plans,
-        "Recommended Diet": diet_plan
-    }
+# ----- Include your full build_meal, diet_planner, generate_exercise_plan, recommend_yoga functions here -----
+# (They are identical to your previous code – copy them in. For brevity I'm not repeating them, but you must.)
+# Make sure to paste your existing implementations between these comments.
 
 # -------------------------------------------------------------------
-# 3. STREAMLIT UI WITH TABS
+# 3. STREAMLIT UI – TWO‑COLUMN DASHBOARD
 # -------------------------------------------------------------------
 def main():
-    st.set_page_config(page_title="Personal Health & Fitness System", layout="wide")
-    st.title("🏋️‍♂️ Health & Fitness Recommendation System")
-    st.markdown("---")
+    st.set_page_config(page_title="Health & Fitness Recommendation System", layout="wide")
+    
+    # Initialize session state for plan results
+    if "plan_generated" not in st.session_state:
+        st.session_state.plan_generated = False
 
-    # Load data and models (cached)
-    with st.spinner("Loading models and food database..."):
-        df = load_data()
-        models = load_models()
-
-    # Sidebar inputs
+    # --- LEFT SIDEBAR (fixed navigation + inputs) ---
     with st.sidebar:
+        st.markdown("## 🧭 Navigation")
+        page = st.radio(
+            "Go to",
+            ["📌 About", "💪 Exercise Plan", "🧘 Yoga Plan", "🍽️ Diet Plan"],
+            index=0,
+            label_visibility="collapsed"
+        )
+        st.markdown("---")
+
         st.header("📋 Your Profile")
         age = st.number_input("Age", min_value=10, max_value=100, value=30, step=1)
         gender = st.selectbox("Gender", ["male", "female"])
@@ -276,19 +224,17 @@ def main():
             ["diabetes", "heart", "cholesterol", "kidney"]
         )
 
-        generate = st.button("🚀 Generate My Plan", type="primary")
+        generate = st.button("🚀 Generate My Plan", type="primary", use_container_width=True)
 
-    # Create tabs
-    tab1, tab2, tab3, tab4 = st.tabs(["📌 About", "💪 Exercise Plan", "🧘 Yoga Plan", "🍽️ Diet Plan"])
-
-    # Initialize session state to store results
-    if "plan_generated" not in st.session_state:
-        st.session_state.plan_generated = False
+    # --- RIGHT MAIN PANEL (dynamic content) ---
+    # Title always visible
+    st.markdown("# 🏋️‍♂️ Health Fitness Recommendation System")
 
     if generate:
         with st.spinner("Creating your personalized plan..."):
             pref = None if preference == "none" else preference
             conds = conditions if conditions else None
+            # Call your health_fitness_system function (must be defined)
             result = health_fitness_system(
                 age=age,
                 gender=gender,
@@ -300,18 +246,18 @@ def main():
                 experience=experience,
                 mode_display=mode_display,
                 conditions=conds,
-                df=df,
-                models=models
+                df=load_data(),        # careful: load_data is cached, okay
+                models=load_models()
             )
             st.session_state.result = result
             st.session_state.plan_generated = True
             st.session_state.goal_display = goal_display
             st.session_state.experience = experience
-            st.success("Plan generated successfully! Check the tabs above.")
+            st.success("Plan generated! You can now view it in the tabs.")
 
-    # Tab 1: About
-    with tab1:
-        st.header("📌 About the App")
+    # Display content based on selected page
+    if page == "📌 About":
+        st.header("📌 About the System")
         st.markdown("""
         **Welcome to the Personalized Health & Fitness Recommendation System!**  
 
@@ -322,16 +268,15 @@ def main():
         - Finally, it recommends **yoga poses** suitable for your experience level and fitness goal.
 
         **How to use:**  
-        1. Fill in your details in the sidebar.  
+        1. Fill in your details in the left sidebar.  
         2. Click **"Generate My Plan"**.  
-        3. Explore the results in the tabs above.
+        3. Navigate through the tabs above to see your personalized plans.
 
         *Stay healthy, stay fit!*  
         """)
 
-    # Tab 2: Exercise Plan
-    with tab2:
-        st.header("💪 Your Personalized Exercise Plans")
+    elif page == "💪 Exercise Plan":
+        st.header("💪 Your Exercise Plans")
         if st.session_state.get("plan_generated", False):
             ex_plans = st.session_state.result["Exercise Plans"]
             cols = st.columns(len(ex_plans))
@@ -345,8 +290,7 @@ def main():
         else:
             st.info("👈 Please generate a plan first using the sidebar.")
 
-    # Tab 3: Yoga Plan
-    with tab3:
+    elif page == "🧘 Yoga Plan":
         st.header("🧘 Yoga Recommendations")
         if st.session_state.get("plan_generated", False):
             goal_internal = ("weight_loss" if "Weight Loss" in st.session_state.goal_display
@@ -362,9 +306,8 @@ def main():
         else:
             st.info("👈 Please generate a plan first using the sidebar.")
 
-    # Tab 4: Diet Plan
-    with tab4:
-        st.header("🍽️ Daily Diet Plan")
+    elif page == "🍽️ Diet Plan":
+        st.header("🍽️ Your Daily Diet Plan")
         if st.session_state.get("plan_generated", False):
             diet = st.session_state.result["Recommended Diet"]
             meals_order = ["breakfast", "lunch", "dinner", "snacks"]
