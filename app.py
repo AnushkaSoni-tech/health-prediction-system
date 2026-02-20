@@ -479,7 +479,7 @@ def main():
 
         generate = st.button("Generate My Plan", type="primary")
 
-    # Main area: generate and display plan
+    
     if generate:
         with st.spinner("Creating your personalized plan..."):
             # Convert preference: "none" -> None, otherwise keep as is
@@ -532,12 +532,10 @@ def main():
                     # Show each food item
                     for _, row in df_meal.iterrows():
                         st.markdown(
-                            f"• **{row['food']}** – {row['Caloric Value']:.0f} kcal  \n"
-                            f"  _P:{row['Protein']:.1f}g  C:{row['Carbohydrates']:.1f}g  F:{row['Fat']:.1f}g_"
+                            f"• **{row['food']}**  \n"
+                          
                         )
-                    # Meal total
-                    total_cal = df_meal["Caloric Value"].sum()
-                    st.markdown(f"**Meal total: {total_cal:.0f} kcal**")
+                    
             else:
                 with st.expander(f"**{meal.title()}**", expanded=False):
                     st.info("No foods selected for this meal.")
@@ -559,6 +557,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
