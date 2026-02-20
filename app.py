@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import os
 
 # -------------------------------------------------------------------
 # 1. CACHED RESOURCE LOADING
@@ -25,10 +26,13 @@ def load_models():
 
 @st.cache_data
 def load_data():
-    """Load and preprocess the food dataset."""
-    df = pd.read_csv("final_dataset_cleaned.csv")
+    """Load and preprocess the new diet‑friendly food dataset."""
+    df = pd.read_csv("diet_friendly_foods.csv")   
+    # Optional: remove any remaining non‑meal items (safety net)
     df = remove_non_meal_foods(df)
+    # Add category column (used by meal builder)
     df["category"] = df["food"].apply(classify_food)
+    # Temporary health score (will be recomputed with actual goal later)
     df["health_score"] = df.apply(lambda row: compute_health_score(row, goal="maintenance"), axis=1)
     df = df.sort_values("health_score", ascending=False)
     return df
@@ -66,20 +70,28 @@ def remove_non_meal_foods(df):
 
 def classify_food(name):
     name = str(name).lower()
+    # Fats / oils (should be limited)
     if any(x in name for x in ["oil", "butter", "ghee", "margarine"]):
         return "fat"
+    # Lean proteins (prioritise for weight loss)
     if any(x in name for x in ["chicken breast", "fish", "egg white", "tofu", "paneer"]):
         return "protein_lean"
+    # Fatty proteins (use in moderation)
     if any(x in name for x in ["chicken", "egg", "meat", "keema", "mutton"]):
         return "protein_fatty"
+    # Complex carbohydrates (preferred)
     if any(x in name for x in ["brown rice", "roti", "chapati", "oat", "quinoa", "poha", "dalia", "whole wheat"]):
         return "carb_complex"
-    if any(x in name for x in ["white rice", "bread", "sugar", "sweet"]):
+    # Simple carbohydrates (limit)
+    if any(x in name for x in ["white rice", "bread", "pasta", "noodle", "maida", "sugar", "sweet"]):
         return "carb_simple"
+    # Fruits
     if any(x in name for x in ["apple", "banana", "orange", "fruit", "berry", "mango", "grapes"]):
         return "fruit"
+    # Vegetables
     if any(x in name for x in ["spinach", "broccoli", "carrot", "beans", "veg", "soup", "raita", "salad", "bhaji"]):
         return "vegetable"
+    # Everything else (mixed dishes, etc.)
     return "other"
 
 def compute_health_score(row, goal="weight_loss"):
@@ -103,9 +115,10 @@ def calorie_split(total):
     }
 
 def adjust_calories(base, goal):
+    # goal internal string: weight_loss, muscle_gain, maintenance
     if goal == "weight_loss":
         return base * 0.8
-    elif goal == "muscle_gain":
+    elif goal == "muscle_gain":   # also used for weight gain
         return base * 1.15
     return base
 
@@ -151,20 +164,25 @@ def medical_filter(df, conditions):
     return df
 
 def filter_diet(df, mode):
-    if mode == "diabetic":
-        return df[df["Sugars"] < 8]
-    elif mode == "high_protein":
+    # mode: 'normal', 'high_protein', 'low_carb'
+    if mode == "high_protein":
         return df[df["Protein"] > 15]
+    elif mode == "low_carb":
+        # Define low carb as < 20g carbohydrates per serving
+        return df[df["Carbohydrates"] < 20]
+    # normal mode: no extra filter
     return df
 
+# Allowed categories per meal (using the detailed categories from classify_food)
 meal_allowed_categories = {
-    "breakfast": ["protein_lean", "protein_fatty", "carb_simple", "fruit", "vegetable"],
-    "lunch":     ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable"],
-    "dinner":    ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable"],
+    "breakfast": ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "fruit", "vegetable"],
+    "lunch":     ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable", "fruit"],
+    "dinner":    ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable", "fruit"],
     "snacks":    ["fruit", "vegetable", "protein_lean", "carb_complex"]
 }
 
 def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goal="weight_loss"):
+    """Builds one meal, aiming to hit the target calories while respecting the fat cap."""
     meal_items = []
     total_cal = 0.0
     total_fat = 0.0
@@ -173,7 +191,7 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
     if available.empty:
         return pd.DataFrame()
 
-    # Soft macro targets (for scoring)
+    # Soft macro targets (used only for guidance, not hard limits)
     if goal == "weight_loss":
         protein_target = target_cal * 0.30 / 4
         fat_target     = target_cal * 0.25 / 9
@@ -192,15 +210,17 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
             return True
         return False
 
-    # Category order based on meal type
+    # ---- Category order based on meal type ----
     if meal_name == "breakfast":
-        category_order = [ "carb_simple", "fruit", "protein_lean", "protein_fatty", "vegetable", "other"]
+        # Breakfast: carbs first, then fruits, then proteins
+        category_order = ["carb_complex", "carb_simple", "fruit", "protein_lean", "protein_fatty", "vegetable", "other"]
     elif meal_name in ["lunch", "dinner"]:
-        category_order = ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable","other"]
+        # Lunch/dinner: protein first, then carbs, then vegetables, then fruits
+        category_order = ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable", "fruit", "other"]
     else:  # snacks
         category_order = ["fruit", "vegetable", "protein_lean", "carb_complex", "carb_simple", "other"]
 
-    # Phase 1: pick one from priority categories
+    # ---- Phase 1: Pick one item from each priority category until we have a base ----
     for cat in category_order:
         if cat not in meal_allowed_categories[meal_name]:
             continue
@@ -228,38 +248,47 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
         if cat_df.empty:
             continue
 
+        # Score: combination of closeness to ideal calories and health score
         cat_df = cat_df.copy()
         cat_df["cal_diff"] = abs(cat_df["Caloric Value"] - ideal_cal)
+        # Normalise health score to 0-1 range (approx)
         max_hs = cat_df["health_score"].max()
         min_hs = cat_df["health_score"].min()
         if max_hs > min_hs:
             cat_df["hs_norm"] = (cat_df["health_score"] - min_hs) / (max_hs - min_hs)
         else:
             cat_df["hs_norm"] = 0.5
-        # Lower cal_diff is better, higher hs_norm is better → minimise combined
+        # Combine (lower cal_diff is better, higher hs_norm is better)
+        # We'll use a weighted rank: 70% weight on cal_diff, 30% on health score
         cat_df["combined_score"] = 0.7 * (cat_df["cal_diff"] / cat_df["cal_diff"].max()) - 0.3 * cat_df["hs_norm"]
         best = cat_df.nsmallest(3, "combined_score").sample(1).iloc[0]
 
+        # Check fat cap
         if would_exceed_fat_cap(best):
             continue
 
+        # Add the food
         meal_items.append(best)
         total_cal += best["Caloric Value"]
         total_fat += best["Fat"]
         used_foods.add(best["food"])
         available = available[available["food"] != best["food"]]
 
+        # If we already have a good base, we can break out of the priority loop
+        # But we want at least 2 items for breakfast, 3 for lunch/dinner
         min_items = 2 if meal_name == "breakfast" else 3 if meal_name in ["lunch","dinner"] else 2
         if len(meal_items) >= min_items and total_cal >= target_cal * 0.5:
             break
 
-    # Phase 2: ensure lunch/dinner have protein and carb
+    # ---- Phase 2: Ensure lunch/dinner have at least one protein and one carb ----
     if meal_name in ["lunch", "dinner"]:
         has_protein = any("protein" in item["category"] for item in meal_items)
         has_carb = any("carb" in item["category"] for item in meal_items)
         if not has_protein:
+            # Force add a protein from remaining available
             protein_df = available[available["category"].str.contains("protein", na=False)]
             if not protein_df.empty:
+                # Pick the one with highest health score
                 best_protein = protein_df.nlargest(1, "health_score").iloc[0]
                 if not would_exceed_fat_cap(best_protein):
                     meal_items.append(best_protein)
@@ -278,10 +307,12 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
                     used_foods.add(best_carb["food"])
                     available = available[available["food"] != best_carb["food"]]
 
-    # Phase 3: fill remaining calories with highest health score foods
+    # ---- Phase 3: Fill remaining calories aggressively ----
     remaining_needed = target_cal - total_cal
     filler_candidates = available[~available["food"].isin(used_foods)].copy()
+    # Exclude very large items (> 60% of remaining target) to avoid overshooting too much
     filler_candidates = filler_candidates[filler_candidates["Caloric Value"] <= remaining_needed * 1.2]
+    # Sort by health score descending
     filler_candidates = filler_candidates.sort_values("health_score", ascending=False)
 
     for _, row in filler_candidates.iterrows():
@@ -291,12 +322,13 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
             continue
         if would_exceed_fat_cap(row):
             continue
+        # Add the food
         meal_items.append(row)
         total_cal += row["Caloric Value"]
         total_fat += row["Fat"]
         used_foods.add(row["food"])
 
-    # Validation
+    # ---- Final validation ----
     if meal_name in ["lunch", "dinner"] and not any("protein" in item["category"] for item in meal_items):
         return pd.DataFrame()
     if total_cal < target_cal * 0.4:
@@ -307,17 +339,23 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
 def diet_planner(df, daily_cal, activity_level=None,
                  mode="normal", conditions=None,
                  goal="maintenance", preference=None):
+    """
+    Generate a daily meal plan with improved macro tracking and goal‑aware selection.
+    """
+    # Work on a copy
     df = df.copy()
-    # Recompute health score with the actual goal
+
+    # Recompute health score with the actual goal (overwrites the temporary column)
     df["health_score"] = df.apply(lambda row: compute_health_score(row, goal=goal), axis=1)
 
+    # Apply dietary preference and medical filters
     if preference:
         df = apply_diet_preference(df, preference)
     if conditions:
         df = medical_filter(df, conditions)
     df = filter_diet(df, mode)
 
-    # Fat cap based on goal
+    # Fat cap: 30% of daily calories from fat (can be adjusted per goal)
     if goal == "weight_loss":
         fat_pct = 0.25
     elif goal == "muscle_gain":
@@ -331,6 +369,7 @@ def diet_planner(df, daily_cal, activity_level=None,
 
     used_foods = set()
     plan = {}
+
     for meal, cal in splits.items():
         meal_df = build_meal(df, cal, used_foods, meal,
                              fat_cap_per_meal.get(meal), goal=goal)
@@ -353,7 +392,7 @@ def generate_exercise_plan(user_input, models):
     cal_scaler = models["cal_scaler"]
 
     # 1. Workout type
-    workout_input = [user_input[:4]]  # Age, Gender, BMI, Experience
+    workout_input = [user_input[:4]]   # Age, Gender, BMI, Experience
     workout_input_scaled = workout_scaler.transform(workout_input)
     workout_pred = workout_model.predict(workout_input_scaled)
     workout_type = workout_encoder.inverse_transform(workout_pred)[0]
@@ -403,8 +442,25 @@ def generate_exercise_plan(user_input, models):
         "Estimated Calories Burned": calories
     }
 
-def health_fitness_system(age, gender, weight, height, activity_level, goal,
-                          preference, experience, mode, conditions, df, models):
+def health_fitness_system(age, gender, weight, height, activity_level, goal_display,
+                          preference, experience, mode_display, conditions, df, models):
+    # Map display goal to internal string
+    goal_map = {
+        "Weight Loss": "weight_loss",
+        "Weight Gain": "muscle_gain",   # treat as muscle gain (calorie surplus)
+        "Muscle Gain": "muscle_gain",
+        "Maintenance": "maintenance"
+    }
+    goal = goal_map[goal_display]
+
+    # Map display mode to internal string
+    mode_map = {
+        "Normal": "normal",
+        "High Protein": "high_protein",
+        "Low Carb": "low_carb"
+    }
+    mode = mode_map[mode_display]
+
     gender_num = 1 if gender.lower() == 'male' else 0
     bmi_value = weight / ((height/100) ** 2)
     bmi_category = bmi_class(weight, height)
@@ -456,9 +512,9 @@ def main():
             "Activity Level",
             ["sedentary", "light", "moderate", "active", "very_active"]
         )
-        goal = st.selectbox(
+        goal_display = st.selectbox(
             "Primary Goal",
-            ["weight_loss", "muscle_gain", "maintenance"]
+            ["Weight Loss", "Weight Gain", "Muscle Gain", "Maintenance"]
         )
         preference = st.selectbox(
             "Diet Preference",
@@ -468,9 +524,9 @@ def main():
             "Exercise Experience (1 = beginner, 4 = expert)",
             min_value=1, max_value=4, value=2, step=1
         )
-        mode = st.selectbox(
+        mode_display = st.selectbox(
             "Diet Mode",
-            ["normal", "diabetic", "high_protein"]
+            ["Normal", "High Protein", "Low Carb"]
         )
         conditions = st.multiselect(
             "Medical Conditions (if any)",
@@ -493,10 +549,10 @@ def main():
                 weight=weight,
                 height=height,
                 activity_level=activity_level,
-                goal=goal,
+                goal_display=goal_display,
                 preference=pref,
                 experience=experience,
-                mode=mode,
+                mode_display=mode_display,
                 conditions=conds,
                 df=df,
                 models=models
@@ -520,6 +576,33 @@ def main():
             st.metric("Session Duration", f"{ex['Session Duration (minutes)']} min")
         with col4:
             st.metric("Calories Burned", f"{ex['Estimated Calories Burned']} kcal")
+
+        # Display exercise images
+        st.markdown("---")
+        st.subheader("🏋️ Exercise Guide")
+        # Map workout types to image filenames (you can customize these)
+        exercise_images = {
+            "Strength": "strength.jpg",
+            "Cardio": "cardio.jpg",
+            "Yoga": "yoga.jpg",
+            "HIIT": "hiit.jpg",
+            "Pilates": "pilates.jpg",
+            "Crossfit": "crossfit.jpg",
+            "Aerobics": "aerobics.jpg",
+            "Zumba": "zumba.jpg",
+            "Stretching": "stretching.jpg",
+            "Walking": "walking.jpg",
+            "Running": "running.jpg",
+            "Cycling": "cycling.jpg",
+            "Swimming": "swimming.jpg",
+        }
+        workout_type = ex["Workout Type"]
+        img_file = exercise_images.get(workout_type, "default.jpg")
+        img_path = os.path.join("images", img_file)
+        if os.path.exists(img_path):
+            st.image(img_path, caption=f"Example of {workout_type} exercise", width=300)
+        else:
+            st.info(f"Image for {workout_type} not found. Please add {img_path} to the images folder.")
 
         # Diet Plan
         st.subheader("🍽️ Daily Diet Plan")
@@ -559,5 +642,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
