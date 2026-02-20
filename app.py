@@ -446,6 +446,78 @@ def generate_exercise_plan(user_input, models):
         "Session Duration (minutes)": duration_minutes,
         "Estimated Calories Burned": calories
     }
+# Add this function in the helper section (after the existing functions, before the UI)
+
+def recommend_yoga(experience_level, goal, age=None):
+    """
+    Recommend yoga poses based on user's experience and goal.
+    experience_level: 1-4 (1=beginner, 4=expert)
+    goal: 'weight_loss', 'muscle_gain', 'maintenance'
+    Returns a list of dictionaries with pose name and description.
+    """
+    # Map experience number to category
+    if experience_level <= 2:
+        level = "beginner"
+    elif experience_level == 3:
+        level = "intermediate"
+    else:
+        level = "advanced"
+
+    # Pose database
+    pose_db = [
+        # Beginner poses
+        {"name": "Mountain Pose (Tadasana)", "level": "beginner", "benefit": "maintenance", 
+         "desc": "Stand tall, feet together, arms at sides. Improves posture and body awareness."},
+        {"name": "Downward-Facing Dog (Adho Mukha Svanasana)", "level": "beginner", "benefit": "weight_loss",
+         "desc": "Inverted V‑shape. Strengthens arms, legs, and back; energizes the body."},
+        {"name": "Child's Pose (Balasana)", "level": "beginner", "benefit": "maintenance",
+         "desc": "Kneel, sit back on heels, fold forward. Restorative; relieves stress."},
+        {"name": "Cat-Cow Stretch (Marjaryasana-Bitilasana)", "level": "beginner", "benefit": "maintenance",
+         "desc": "On hands and knees, alternate arching and rounding spine. Warms up spine."},
+        {"name": "Cobra Pose (Bhujangasana)", "level": "beginner", "benefit": "muscle_gain",
+         "desc": "Lying on stomach, lift chest with hands under shoulders. Strengthens back."},
+        # Intermediate poses
+        {"name": "Sun Salutation A (Surya Namaskar A)", "level": "intermediate", "benefit": "weight_loss",
+         "desc": "A flowing sequence of 12 poses. Excellent cardio and full‑body workout."},
+        {"name": "Warrior I (Virabhadrasana I)", "level": "intermediate", "benefit": "muscle_gain",
+         "desc": "Lunge with arms raised. Builds leg and core strength."},
+        {"name": "Warrior II (Virabhadrasana II)", "level": "intermediate", "benefit": "muscle_gain",
+         "desc": "Wide stance, arms parallel to floor. Strengthens legs and opens hips."},
+        {"name": "Triangle Pose (Trikonasana)", "level": "intermediate", "benefit": "weight_loss",
+         "desc": "Side stretch with one hand on shin. Tones waist and legs."},
+        {"name": "Bridge Pose (Setu Bandhasana)", "level": "intermediate", "benefit": "muscle_gain",
+         "desc": "Lying on back, lift hips. Strengthens glutes and lower back."},
+        # Advanced poses
+        {"name": "Headstand (Sirsasana)", "level": "advanced", "benefit": "muscle_gain",
+         "desc": "Balanced on forearms and head. Builds core strength and focus."},
+        {"name": "Crow Pose (Bakasana)", "level": "advanced", "benefit": "muscle_gain",
+         "desc": "Arm balance with knees on triceps. Strengthens arms and core."},
+        {"name": "Wheel Pose (Urdhva Dhanurasana)", "level": "advanced", "benefit": "maintenance",
+         "desc": "Full backbend from floor. Increases spine flexibility."},
+        {"name": "Firefly Pose (Tittibhasana)", "level": "advanced", "benefit": "weight_loss",
+         "desc": "Arm balance with legs extended forward. Requires strength and flexibility."},
+        {"name": "Eight-Angle Pose (Astavakrasana)", "level": "advanced", "benefit": "muscle_gain",
+         "desc": "Twisted arm balance. Builds arm and core strength."},
+    ]
+
+    # Filter by level and benefit
+    recommended = []
+    for pose in pose_db:
+        if pose["level"] == level and pose["benefit"] == goal:
+            recommended.append(pose)
+        # If not enough, also include poses that match level but general benefit (maintenance)
+        if len(recommended) < 3 and pose["level"] == level and pose["benefit"] == "maintenance":
+            recommended.append(pose)
+
+    # Ensure we have at least a few poses; if none match, add beginner friendly ones
+    if not recommended:
+        for pose in pose_db:
+            if pose["level"] == "beginner":
+                recommended.append(pose)
+            if len(recommended) >= 3:
+                break
+
+    return recommended[:5]  # limit to 5 poses
 
 def health_fitness_system(age, gender, weight, height, activity_level, goal,
                           preference, experience, mode, conditions, df, models):
@@ -563,7 +635,14 @@ def main():
             st.metric("Session Duration", f"{ex['Session Duration (minutes)']} min")
         with col4:
             st.metric("Calories Burned", f"{ex['Estimated Calories Burned']} kcal")
-
+        # Yoga Recommendations (new expander)
+        with st.expander("🧘 Yoga Recommendations"):
+            if st.button("Get Yoga Suggestions"):
+                yoga_poses = recommend_yoga(experience, goal, age)
+                for pose in yoga_poses:
+                    st.markdown(f"**{pose['name']}**  \n{pose['desc']}")
+            else:
+                st.info("Click the button above to receive personalized yoga pose recommendations.")
         # Diet Plan
         st.subheader("🍽️ Daily Diet Plan")
         diet = result["Recommended Diet"]
@@ -596,4 +675,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
