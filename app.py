@@ -157,19 +157,27 @@ def filter_diet(df, mode):
         return df[df["Protein"] > 15]
     return df
 
+# Expanded allowed categories to include all relevant types for each meal
 meal_allowed_categories = {
-    "breakfast": ["protein_lean", "protein_fatty", "carb_simple", "fruit", "vegetable"],
-    "lunch":     ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable"],
-    "dinner":    ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable"],
+    "breakfast": ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "fruit", "vegetable"],
+    "lunch":     ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable", "fruit"],
+    "dinner":    ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable", "fruit"],
     "snacks":    ["fruit", "vegetable", "protein_lean", "carb_complex"]
 }
 
 def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goal="weight_loss"):
+    """
+    Builds one meal, aiming to hit the target calories while respecting the fat cap.
+    Returns a DataFrame of selected foods. If normal selection fails, falls back to
+    picking highest‑scoring items from allowed categories.
+    """
     meal_items = []
     total_cal = 0.0
     total_fat = 0.0
 
-    available = df[~df["food"].isin(used_foods)].copy()
+    # Filter to allowed categories for this meal
+    allowed = df[df["category"].isin(meal_allowed_categories[meal_name])].copy()
+    available = allowed[~allowed["food"].isin(used_foods)].copy()
     if available.empty:
         return pd.DataFrame()
 
@@ -194,13 +202,15 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
 
     # Category order based on meal type
     if meal_name == "breakfast":
-        category_order = [ "carb_simple", "fruit", "protein_lean", "protein_fatty", "vegetable", "other"]
+        # Breakfast: carbs first, then fruits, then proteins
+        category_order = ["carb_complex", "carb_simple", "fruit", "protein_lean", "protein_fatty", "vegetable", "other"]
     elif meal_name in ["lunch", "dinner"]:
-        category_order = ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable","other"]
+        # Lunch/dinner: protein first, then carbs, then vegetables, then fruits
+        category_order = ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable", "fruit", "other"]
     else:  # snacks
         category_order = ["fruit", "vegetable", "protein_lean", "carb_complex", "carb_simple", "other"]
 
-    # Phase 1: pick one from priority categories
+    # ---- Phase 1: Pick one item from each priority category until we have a base ----
     for cat in category_order:
         if cat not in meal_allowed_categories[meal_name]:
             continue
@@ -228,36 +238,44 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
         if cat_df.empty:
             continue
 
+        # Score: combination of closeness to ideal calories and health score
         cat_df = cat_df.copy()
         cat_df["cal_diff"] = abs(cat_df["Caloric Value"] - ideal_cal)
+        # Normalise health score to 0-1 range (approx)
         max_hs = cat_df["health_score"].max()
         min_hs = cat_df["health_score"].min()
         if max_hs > min_hs:
             cat_df["hs_norm"] = (cat_df["health_score"] - min_hs) / (max_hs - min_hs)
         else:
             cat_df["hs_norm"] = 0.5
-        # Lower cal_diff is better, higher hs_norm is better → minimise combined
+        # Combine (lower cal_diff is better, higher hs_norm is better)
+        # We'll use a weighted rank: 70% weight on cal_diff, 30% on health score
         cat_df["combined_score"] = 0.7 * (cat_df["cal_diff"] / cat_df["cal_diff"].max()) - 0.3 * cat_df["hs_norm"]
         best = cat_df.nsmallest(3, "combined_score").sample(1).iloc[0]
 
+        # Check fat cap
         if would_exceed_fat_cap(best):
             continue
 
+        # Add the food
         meal_items.append(best)
         total_cal += best["Caloric Value"]
         total_fat += best["Fat"]
         used_foods.add(best["food"])
         available = available[available["food"] != best["food"]]
 
+        # If we already have a good base, we can break out of the priority loop
+        # But we want at least 2 items for breakfast, 3 for lunch/dinner
         min_items = 2 if meal_name == "breakfast" else 3 if meal_name in ["lunch","dinner"] else 2
         if len(meal_items) >= min_items and total_cal >= target_cal * 0.5:
             break
 
-    # Phase 2: ensure lunch/dinner have protein and carb
+    # ---- Phase 2: Ensure lunch/dinner have at least one protein and one carb ----
     if meal_name in ["lunch", "dinner"]:
         has_protein = any("protein" in item["category"] for item in meal_items)
         has_carb = any("carb" in item["category"] for item in meal_items)
         if not has_protein:
+            # Force add a protein from remaining available
             protein_df = available[available["category"].str.contains("protein", na=False)]
             if not protein_df.empty:
                 best_protein = protein_df.nlargest(1, "health_score").iloc[0]
@@ -278,10 +296,12 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
                     used_foods.add(best_carb["food"])
                     available = available[available["food"] != best_carb["food"]]
 
-    # Phase 3: fill remaining calories with highest health score foods
+    # ---- Phase 3: Fill remaining calories aggressively ----
     remaining_needed = target_cal - total_cal
     filler_candidates = available[~available["food"].isin(used_foods)].copy()
+    # Exclude very large items (> 60% of remaining target) to avoid overshooting too much
     filler_candidates = filler_candidates[filler_candidates["Caloric Value"] <= remaining_needed * 1.2]
+    # Sort by health score descending
     filler_candidates = filler_candidates.sort_values("health_score", ascending=False)
 
     for _, row in filler_candidates.iterrows():
@@ -296,11 +316,35 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
         total_fat += row["Fat"]
         used_foods.add(row["food"])
 
-    # Validation
-    if meal_name in ["lunch", "dinner"] and not any("protein" in item["category"] for item in meal_items):
-        return pd.DataFrame()
-    if total_cal < target_cal * 0.4:
-        return pd.DataFrame()
+    # ---- Final validation ----
+    # If meal is still empty or doesn't meet minimum criteria, fall back to a simple selection
+    if len(meal_items) == 0 or (meal_name in ["lunch", "dinner"] and not any("protein" in item["category"] for item in meal_items)):
+        # Fallback: pick top health score items from allowed categories, ignoring calorie and fat caps
+        fallback_df = allowed[~allowed["food"].isin(used_foods)].copy()
+        fallback_df = fallback_df.sort_values("health_score", ascending=False)
+        meal_items = []
+        total_cal = 0.0
+        for _, row in fallback_df.iterrows():
+            if len(meal_items) >= 3:
+                break
+            meal_items.append(row)
+            used_foods.add(row["food"])
+            total_cal += row["Caloric Value"]
+        return pd.DataFrame(meal_items)
+
+    if total_cal < target_cal * 0.4 and len(meal_items) < 2:
+        # Too little food – fallback as above
+        fallback_df = allowed[~allowed["food"].isin(used_foods)].copy()
+        fallback_df = fallback_df.sort_values("health_score", ascending=False)
+        meal_items = []
+        total_cal = 0.0
+        for _, row in fallback_df.iterrows():
+            if len(meal_items) >= 3:
+                break
+            meal_items.append(row)
+            used_foods.add(row["food"])
+            total_cal += row["Caloric Value"]
+        return pd.DataFrame(meal_items)
 
     return pd.DataFrame(meal_items)
 
@@ -479,7 +523,6 @@ def main():
 
         generate = st.button("Generate My Plan", type="primary")
 
-    
     if generate:
         with st.spinner("Creating your personalized plan..."):
             # Convert preference: "none" -> None, otherwise keep as is
@@ -529,13 +572,9 @@ def main():
             df_meal = diet.get(meal)
             if df_meal is not None and not df_meal.empty:
                 with st.expander(f"**{meal.title()}**", expanded=True):
-                    # Show each food item
+                    # Show each food item (only food name, as requested)
                     for _, row in df_meal.iterrows():
-                        st.markdown(
-                            f"• **{row['food']}**  \n"
-                          
-                        )
-                    
+                        st.markdown(f"• **{row['food']}**")
             else:
                 with st.expander(f"**{meal.title()}**", expanded=False):
                     st.info("No foods selected for this meal.")
@@ -557,7 +596,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
