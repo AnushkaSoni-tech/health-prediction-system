@@ -26,7 +26,7 @@ def load_models():
 @st.cache_data
 def load_data():
     """Load and preprocess the food dataset."""
-    df = pd.read_csv("final_dataset.csv")
+    df = pd.read_csv("final_dataset_cleaned.csv")
     df = remove_non_meal_foods(df)
     df["category"] = df["food"].apply(classify_food)
     df["health_score"] = df.apply(lambda row: compute_health_score(row, goal="maintenance"), axis=1)
@@ -559,4 +559,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
