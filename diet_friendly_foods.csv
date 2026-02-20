@@ -1,0 +1,828 @@
+food,Caloric Value,Carbohydrates,Protein,Fat,Sugars,Fiber,meal_type
+Plain idli (2 pieces),130,28.0,4.5,0.4,0.3,2.3,breakfast
+Ragi idli,125,26.0,4.0,1.2,0.8,4.5,breakfast
+Oats idli,130,24.0,4.5,2.0,1.0,3.5,breakfast
+Rava idli,165,32.0,4.2,2.5,1.5,1.2,breakfast
+Brown rice idli,128,27.0,4.3,0.9,0.4,2.8,breakfast
+Quinoa idli,135,25.0,5.0,2.2,1.0,3.0,breakfast
+Vegetable idli,140,28.0,4.8,1.5,1.2,3.2,breakfast
+Spinach idli,132,26.5,5.0,1.3,0.9,3.8,breakfast
+Methi idli,135,27.0,4.7,1.6,1.1,4.0,breakfast
+Multigrain idli,140,28.5,5.2,1.8,1.0,4.2,breakfast
+Moong dal idli,145,26.0,6.5,2.0,0.8,4.5,breakfast
+Cabbage idli,128,26.0,4.5,1.2,1.3,3.5,breakfast
+Plain dosa (1 medium),150,28.0,3.5,3.0,0.5,2.0,breakfast
+Masala dosa (with potato filling),210,35.0,4.0,6.0,1.5,3.0,breakfast
+Ragi dosa,140,28.0,4.5,2.0,1.2,5.0,breakfast
+Moong dal dosa (pesarattu),160,24.0,8.0,3.5,1.0,4.5,breakfast
+Onion dosa,165,29.0,3.8,4.0,2.0,2.5,breakfast
+Vegetable dosa,170,30.0,4.2,4.0,1.8,3.0,breakfast
+Set dosa,140,26.0,4.0,2.5,0.8,2.0,breakfast
+Neer dosa,120,24.0,3.0,1.5,0.5,1.5,breakfast
+Wheat dosa,155,28.0,4.5,3.0,1.0,3.5,breakfast
+Millet dosa,150,27.0,4.5,3.0,0.8,4.0,breakfast
+Egg dosa,180,26.0,7.0,5.0,1.0,2.0,breakfast
+Paneer dosa,200,28.0,8.0,6.0,1.5,2.5,breakfast
+Spinach dosa,145,26.0,5.0,2.8,1.2,4.2,breakfast
+Tomato dosa,155,29.0,3.8,3.2,2.5,2.8,breakfast
+Onion uttapam,180,30.0,5.0,4.5,2.0,3.2,breakfast
+Tomato uttapam,175,29.0,4.8,4.2,2.5,3.0,breakfast
+Vegetable uttapam,175,28.0,5.5,4.0,2.5,4.0,breakfast
+Mix vegetable uttapam,185,30.0,5.8,4.5,2.8,4.2,breakfast
+Paneer uttapam,200,28.0,8.0,6.0,2.0,3.5,breakfast
+Capsicum uttapam,170,28.5,4.5,4.0,2.2,3.5,breakfast
+Cabbage uttapam,165,27.0,4.5,3.8,2.0,4.0,breakfast
+Sprouts uttapam,190,29.0,7.0,4.5,2.0,5.0,breakfast
+Suji upma with vegetables,145,28.0,4.0,3.0,2.0,2.5,breakfast
+Vegetable upma,140,26.0,4.2,2.8,2.2,3.0,breakfast
+Oats upma,135,23.0,5.0,3.0,1.5,4.5,breakfast
+Quinoa upma,140,24.0,5.5,2.5,1.8,4.0,breakfast
+Vermicelli upma,155,30.0,3.5,2.5,3.0,1.5,breakfast
+Rava upma,145,28.0,4.0,3.0,2.0,2.5,breakfast
+Wheat upma,150,29.0,4.5,3.0,2.0,3.5,breakfast
+Broken wheat upma,148,28.5,4.5,2.8,1.8,3.8,breakfast
+Millet upma,140,26.0,4.2,2.5,1.5,4.0,breakfast
+Bread upma,160,30.0,5.0,3.5,3.0,2.0,breakfast
+Sprouts upma,150,25.0,6.0,3.0,2.0,4.5,breakfast
+Cabbage upma,135,24.0,4.0,2.8,2.5,3.5,breakfast
+Tomato upma,140,26.0,3.8,3.0,3.0,2.8,breakfast
+Palak upma,138,25.0,4.5,2.8,1.8,4.0,breakfast
+Kanda poha (onion poha),170,33.0,3.8,3.2,2.2,2.8,breakfast
+Batata poha (potato poha),175,34.0,3.5,3.0,2.0,2.5,breakfast
+Vegetable poha,165,32.0,4.0,3.0,2.0,3.2,breakfast
+Sprouts poha,160,30.0,5.0,3.0,2.0,4.0,breakfast
+Peanut poha,185,32.0,5.5,4.5,2.0,3.5,breakfast
+Lemon poha,160,31.0,3.5,2.8,2.0,2.5,breakfast
+Green peas poha,170,32.0,4.5,3.0,2.5,3.5,breakfast
+Cabbage poha,155,30.0,3.8,2.8,2.2,3.0,breakfast
+Palak poha,160,31.0,4.2,3.0,2.0,3.8,breakfast
+Masala poha,180,34.0,4.0,3.5,2.5,3.0,breakfast
+Plain whole wheat paratha (low oil),210,32.0,6.0,6.5,1.0,4.5,breakfast
+Aloo paratha (low oil),220,35.0,6.0,6.0,1.5,4.0,breakfast
+Gobi paratha (low oil),200,32.0,6.5,5.0,1.8,4.8,breakfast
+"Paneer paratha (low-fat paneer, low oil)",235,30.0,10.0,8.0,1.5,4.2,breakfast
+Methi paratha,190,30.0,6.0,5.0,2.0,5.5,breakfast
+Mooli paratha,185,28.0,5.5,5.0,2.2,4.8,breakfast
+Mixed vegetable paratha,195,31.0,6.0,5.2,2.0,4.5,breakfast
+Onion paratha,190,31.0,5.5,5.0,2.0,4.0,breakfast
+Sattu paratha,215,33.0,8.0,5.0,1.0,5.0,breakfast
+Lachha paratha (low oil),220,34.0,6.0,6.5,1.0,4.0,breakfast
+Muli paratha,180,27.0,5.0,5.0,2.0,4.5,breakfast
+Palak paratha,190,30.0,6.5,5.0,1.8,5.0,breakfast
+Pyaz paratha,195,31.0,5.5,5.5,2.2,4.0,breakfast
+Mutter paratha,200,32.0,6.5,5.0,2.0,4.5,breakfast
+Soya keema paratha,210,30.0,9.0,6.0,1.5,4.5,breakfast
+Sprouts paratha,195,30.0,7.0,5.0,1.5,5.0,breakfast
+Cabbage paratha,180,28.0,5.5,4.8,2.0,4.5,breakfast
+Carrot paratha,185,29.0,5.5,5.0,2.5,4.0,breakfast
+Whole wheat roti,85,16.0,2.8,0.8,0.3,3.0,breakfast
+Jowar roti,85,17.0,2.5,0.5,0.2,3.0,breakfast
+Bajra roti,90,17.0,2.8,1.0,0.3,3.5,breakfast
+Ragi roti,85,17.5,2.5,0.6,0.2,4.0,breakfast
+Multigrain roti,85,16.0,3.0,0.8,0.3,3.5,breakfast
+Missi roti,95,16.0,4.0,1.5,0.5,3.0,breakfast
+Makki ki roti,100,19.0,2.5,1.5,0.5,3.0,breakfast
+Nachni roti,85,17.5,2.5,0.6,0.2,4.0,breakfast
+Rice roti,90,18.0,2.0,0.5,0.2,1.5,breakfast
+Quinoa roti,95,17.0,3.5,1.2,0.3,3.0,breakfast
+Besan chilla (gram flour pancake),160,20.0,8.0,5.5,1.5,4.0,breakfast
+Moong dal chilla,150,20.0,9.0,4.0,1.0,4.5,breakfast
+Mixed dal chilla,155,21.0,8.5,4.5,1.2,4.2,breakfast
+Spinach chilla,150,19.0,8.0,4.5,1.5,4.5,breakfast
+Onion chilla,155,21.0,7.5,5.0,2.0,3.5,breakfast
+Paneer stuffed chilla,190,22.0,11.0,7.0,1.5,4.0,breakfast
+Methi chilla,155,20.0,8.0,4.8,1.5,4.5,breakfast
+Vegetable chilla,160,21.0,7.5,5.0,1.8,4.0,breakfast
+Cabbage chilla,145,19.0,7.0,4.5,2.0,4.0,breakfast
+Sprouts chilla,165,22.0,8.5,5.0,1.5,4.5,breakfast
+Khaman dhokla,160,28.0,6.0,3.0,2.5,2.5,breakfast
+Rava dhokla,170,30.0,5.0,3.5,2.0,1.5,breakfast
+Mixed lentil dhokla,165,27.0,6.5,3.2,2.2,2.8,breakfast
+Vegetable dhokla,155,26.0,5.5,3.0,2.5,3.0,breakfast
+Palak dhokla,150,25.0,6.0,2.8,2.0,3.5,breakfast
+Handvo,190,30.0,7.0,4.5,2.0,4.0,breakfast
+Methi muthia,180,28.0,6.0,4.0,2.0,4.5,breakfast
+Cabbage muthia,170,27.0,5.5,3.8,2.2,4.0,breakfast
+Boiled eggs (2 eggs),140,1.0,12.0,10.0,0.5,0.0,breakfast
+Scrambled eggs (2 eggs),180,1.0,13.0,14.0,0.5,0.0,breakfast
+Vegetable omelette (2 eggs),180,3.0,13.0,12.0,1.5,1.0,breakfast
+Egg bhurji,170,2.0,12.0,12.0,1.0,0.5,breakfast
+Egg white omelette (3 whites),70,1.0,15.0,0.5,0.5,0.0,breakfast
+Poached eggs (2 eggs),140,1.0,12.0,10.0,0.5,0.0,breakfast
+"Fried eggs (minimal oil, 2 eggs)",160,1.0,12.0,12.0,0.5,0.0,breakfast
+Masala omelette (2 eggs),190,3.5,13.0,13.0,1.5,1.0,breakfast
+Egg and spinach scramble,160,2.5,12.0,11.0,1.0,0.5,breakfast
+Egg and mushroom omelette,175,3.0,13.0,12.0,1.2,1.0,breakfast
+Grilled paneer sandwich (whole wheat),220,28.0,12.0,7.0,3.0,4.0,breakfast
+Paneer bhurji (low-fat),180,5.0,15.0,11.0,2.0,1.0,breakfast
+"Paneer paratha (low-fat paneer, low oil)",235,30.0,10.0,8.0,1.5,4.2,breakfast
+Paneer chilla,190,22.0,11.0,7.0,1.5,4.0,breakfast
+Paneer stuffed uttapam,200,28.0,8.0,6.0,2.0,3.5,breakfast
+Scrambled paneer,170,4.0,14.0,11.0,1.5,1.0,breakfast
+Greek yogurt with berries,120,8.0,10.0,5.0,5.0,1.5,breakfast
+Fresh fruit bowl,90,22.0,1.5,0.5,18.0,4.0,breakfast
+Banana smoothie (with yogurt),140,25.0,5.0,2.5,12.0,4.0,breakfast
+Apple with peanut butter,180,22.0,5.0,9.0,16.0,4.0,breakfast
+Muesli with low‑fat milk,200,35.0,6.0,4.0,10.0,5.0,breakfast
+Overnight oats with fruits,190,32.0,6.0,4.0,8.0,5.0,breakfast
+Chia seed pudding,180,15.0,6.0,10.0,5.0,8.0,breakfast
+Papaya (1 cup),55,14.0,0.9,0.2,11.0,2.5,breakfast
+Banana (1 medium),105,27.0,1.3,0.3,14.0,3.1,breakfast
+Mixed fruit salad,80,20.0,1.0,0.5,15.0,3.0,breakfast
+Oatmeal with berries,150,27.0,5.0,3.0,8.0,4.0,breakfast
+Scrambled eggs (2 eggs),180,1.0,13.0,14.0,0.5,0.0,breakfast
+Whole wheat toast (2 slices),160,28.0,6.0,2.0,2.0,4.0,breakfast
+Avocado toast (whole wheat),220,25.0,6.0,11.0,1.5,5.0,breakfast
+Greek yogurt parfait,180,25.0,10.0,5.0,12.0,2.0,breakfast
+"Pancakes (2 small, whole wheat)",200,35.0,6.0,5.0,6.0,3.0,breakfast
+"French toast (whole wheat, light syrup)",220,30.0,8.0,8.0,8.0,3.0,breakfast
+"Breakfast burrito (whole wheat tortilla, eggs, veggies)",250,30.0,12.0,10.0,3.0,5.0,breakfast
+"Smoothie (banana, spinach, almond milk)",140,28.0,4.0,2.0,15.0,4.0,breakfast
+Protein shake (whey with water),120,2.0,25.0,1.0,1.0,0.0,breakfast
+Cottage cheese with pineapple,150,12.0,15.0,5.0,10.0,1.0,breakfast
+Hard boiled eggs (2),140,1.0,12.0,10.0,0.5,0.0,breakfast
+Bagel (whole wheat) with low‑fat cream cheese,260,45.0,10.0,5.0,5.0,4.0,breakfast
+English muffin with peanut butter,230,30.0,9.0,9.0,4.0,3.0,breakfast
+Granola with low‑fat yogurt,220,35.0,8.0,6.0,12.0,4.0,breakfast
+Fruit salad,80,20.0,1.0,0.5,15.0,3.0,breakfast
+Quinoa breakfast bowl,190,32.0,6.0,4.0,5.0,4.0,breakfast
+Chia pudding with almond milk,170,14.0,5.0,10.0,5.0,8.0,breakfast
+Steel cut oats with nuts,200,30.0,6.0,7.0,2.0,5.0,breakfast
+Rice cakes with avocado,150,18.0,3.0,8.0,1.0,3.0,breakfast
+Egg white scramble,100,1.0,20.0,2.0,0.5,0.0,breakfast
+Smoked salmon on whole wheat toast,210,25.0,15.0,6.0,2.0,3.0,breakfast
+Breakfast wrap with eggs and veggies,230,28.0,12.0,8.0,3.0,4.0,breakfast
+Hash browns (baked),150,28.0,2.0,4.0,1.0,2.5,breakfast
+Turkey bacon (2 slices),70,1.0,8.0,4.0,0.0,0.0,breakfast
+Low‑fat cream cheese on rice cakes,120,15.0,4.0,5.0,2.0,1.0,breakfast
+Peanut butter on whole wheat toast,230,25.0,9.0,12.0,3.0,4.0,breakfast
+Berry smoothie bowl,140,25.0,5.0,2.5,12.0,4.0,breakfast
+Kefir with berries,130,12.0,8.0,4.0,10.0,1.0,breakfast
+Whole grain cereal with milk,150,28.0,5.0,2.0,8.0,3.0,breakfast
+Omelette with mushrooms and spinach,170,3.0,12.0,12.0,1.5,1.0,breakfast
+"Breakfast sandwich (egg white, cheese on whole wheat)",200,25.0,14.0,6.0,2.0,3.0,breakfast
+Frittata with vegetables,160,4.0,11.0,11.0,2.0,1.5,breakfast
+"Quiche (mini, crustless)",180,6.0,10.0,13.0,2.0,1.0,breakfast
+Cottage cheese with peaches,130,10.0,14.0,4.0,8.0,1.0,breakfast
+Yogurt with granola,180,28.0,6.0,5.0,12.0,2.0,breakfast
+Apple cinnamon oatmeal,160,30.0,5.0,2.5,10.0,4.0,breakfast
+Blueberry muffins (whole wheat),190,32.0,5.0,5.0,12.0,3.0,breakfast
+Banana nut bread (slice),210,35.0,4.0,7.0,15.0,2.0,breakfast
+Pumpkin spice oatmeal,150,28.0,5.0,2.5,8.0,4.0,breakfast
+Cranberry walnut oatmeal,170,29.0,5.5,4.0,9.0,4.5,breakfast
+Almond butter on toast,220,24.0,7.0,11.0,3.0,4.0,breakfast
+Sunflower seeds with yogurt,160,10.0,8.0,10.0,5.0,2.0,breakfast
+Flaxseed porridge,140,20.0,6.0,4.0,2.0,6.0,breakfast
+Hemp seed smoothie,180,15.0,8.0,10.0,5.0,4.0,breakfast
+Chocolate protein smoothie,190,20.0,20.0,4.0,10.0,3.0,breakfast
+Mixed berry smoothie,130,25.0,4.0,2.0,15.0,4.0,breakfast
+"Green smoothie (kale, apple)",120,22.0,3.0,2.0,12.0,5.0,breakfast
+"Tropical smoothie (mango, pineapple)",140,28.0,2.0,1.5,20.0,3.0,breakfast
+Watermelon mint cooler,60,15.0,1.0,0.0,12.0,1.0,breakfast
+Fresh orange juice (small),45,10.0,0.7,0.2,8.0,0.5,breakfast
+Grapefruit (half),40,10.0,0.8,0.1,8.0,1.5,breakfast
+Kiwifruit (2),90,22.0,1.6,0.8,13.0,4.0,breakfast
+Strawberries (1 cup),50,12.0,1.0,0.5,7.0,3.0,breakfast
+Raspberries (1 cup),65,15.0,1.5,0.8,5.0,8.0,breakfast
+Blackberries (1 cup),60,14.0,2.0,0.5,7.0,8.0,breakfast
+Blueberries (1 cup),85,21.0,1.1,0.5,15.0,4.0,breakfast
+Cantaloupe (1 cup),55,13.0,1.4,0.3,12.0,1.5,breakfast
+Honeydew melon (1 cup),60,16.0,1.0,0.2,14.0,1.5,breakfast
+Peach (1 medium),60,15.0,1.4,0.4,13.0,2.0,breakfast
+Plum (2),60,15.0,1.0,0.4,13.0,2.0,breakfast
+Apricots (3),60,14.0,1.5,0.5,12.0,2.5,breakfast
+Cherries (1 cup),90,22.0,1.6,0.3,18.0,3.0,breakfast
+Grapes (1 cup),100,27.0,1.0,0.2,23.0,1.5,breakfast
+Pineapple (1 cup),80,21.0,1.0,0.2,16.0,2.5,breakfast
+Mango (1 cup),100,25.0,1.4,0.4,23.0,3.0,breakfast
+Pears (1 medium),100,27.0,0.6,0.2,17.0,5.5,breakfast
+Apple (1 medium),95,25.0,0.5,0.3,19.0,4.5,breakfast
+Orange (1 medium),65,16.0,1.3,0.2,12.0,3.5,breakfast
+Banana (1 medium),105,27.0,1.3,0.3,14.0,3.1,breakfast
+Dates (2),110,30.0,1.0,0.2,27.0,3.0,breakfast
+Figs (2),100,26.0,1.5,0.4,20.0,4.0,breakfast
+Prunes (3),70,18.0,0.8,0.1,11.0,2.0,breakfast
+Raisins (small box),130,34.0,1.3,0.2,29.0,2.0,breakfast
+Wheat bran cereal with milk,140,28.0,5.0,2.0,6.0,5.0,breakfast
+Corn flakes with milk,150,30.0,4.0,2.0,8.0,1.0,breakfast
+Rice krispies with milk,140,30.0,3.0,2.0,8.0,0.5,breakfast
+Special K with berries,130,26.0,5.0,1.5,8.0,2.0,breakfast
+Cheerios with milk,140,26.0,5.0,2.0,6.0,3.0,breakfast
+Frosted mini wheats with milk,170,35.0,5.0,2.0,10.0,4.0,breakfast
+"Brown rice (cooked, 1 cup)",215,45.0,5.0,1.8,0.5,3.5,lunch
+"Red rice (cooked, 1 cup)",210,44.0,5.0,1.5,0.4,3.0,lunch
+Jeera rice (1 cup),240,48.0,4.5,3.5,0.5,1.5,lunch
+Vegetable pulao (1 cup),230,42.0,5.5,4.0,3.0,3.0,lunch
+Lemon rice (1 cup),220,44.0,4.0,3.0,1.0,2.0,lunch
+Curd rice (1 cup),210,38.0,6.0,4.0,3.5,1.5,lunch
+Tomato rice (1 cup),215,42.0,4.0,3.0,4.0,2.0,lunch
+Coconut rice (1 cup),260,40.0,4.5,8.0,2.0,3.0,lunch
+Mint rice (1 cup),225,43.0,4.2,3.5,1.5,2.5,lunch
+Peas pulao (1 cup),235,44.0,6.0,4.0,2.5,4.0,lunch
+Mushroom pulao (1 cup),240,40.0,6.5,5.0,2.0,3.5,lunch
+Soya pulao (1 cup),250,38.0,10.0,6.0,2.5,4.0,lunch
+Paneer pulao (1 cup),280,40.0,10.0,8.0,2.0,2.5,lunch
+Spinach rice (1 cup),210,40.0,5.5,3.0,1.5,4.0,lunch
+Cabbage rice (1 cup),200,39.0,4.5,2.8,3.0,3.5,lunch
+Carrot rice (1 cup),215,42.0,4.5,3.0,4.0,3.0,lunch
+Beans rice (1 cup),210,41.0,5.0,3.0,2.5,3.5,lunch
+Fenugreek rice (1 cup),220,42.0,5.0,3.5,2.0,4.0,lunch
+Bisi bele bath (1 cup),250,45.0,8.0,4.0,5.0,5.0,lunch
+"Pongal (ven pongal, 1 cup)",240,40.0,6.0,6.0,2.0,2.5,lunch
+Khichdi (1 cup),220,38.0,7.0,4.0,1.5,3.5,lunch
+Quinoa khichdi (1 cup),210,34.0,7.5,4.0,1.5,4.5,lunch
+Oats khichdi (1 cup),200,32.0,7.0,3.5,1.5,4.0,lunch
+Bajra khichdi (1 cup),215,38.0,6.5,3.5,1.0,4.5,lunch
+Ragi khichdi (1 cup),210,40.0,6.0,3.0,1.0,5.0,lunch
+2 whole wheat rotis with dal (1 bowl),320,55.0,12.0,6.0,2.0,8.0,lunch
+2 jowar rotis with mixed vegetable sabzi (1 bowl),300,52.0,10.0,5.5,3.0,9.0,lunch
+2 bajra rotis with saag (1 bowl),320,50.0,11.0,7.0,2.5,10.0,lunch
+2 missi rotis with chole (1 bowl),380,58.0,14.0,8.0,3.0,9.0,lunch
+2 multigrain rotis with paneer bhurji (1 bowl),350,48.0,15.0,10.0,2.5,7.0,lunch
+2 ragi rotis with dal (1 bowl),300,52.0,11.0,5.0,2.0,9.0,lunch
+2 phulkas with bhindi masala (1 bowl),290,50.0,8.0,6.0,3.0,7.0,lunch
+"2 tandoori rotis with dal makhani (light, 1 bowl)",340,54.0,12.0,7.0,2.5,6.0,lunch
+1 whole wheat naan with chana masala (1 bowl),350,58.0,12.0,7.0,3.5,7.0,lunch
+1 whole wheat kulcha with aloo matar (1 bowl),330,56.0,9.0,6.5,3.0,6.0,lunch
+1 paratha (plain) with raita (1 bowl),310,45.0,8.0,10.0,3.0,4.5,lunch
+2 theplas with curd (1 bowl),320,52.0,10.0,8.0,3.5,7.0,lunch
+2 methi rotis with aloo sabzi (1 bowl),300,52.0,9.0,6.0,2.5,8.0,lunch
+2 makki rotis with sarson saag (1 bowl),350,55.0,10.0,9.0,3.0,9.0,lunch
+2 rice rotis with vegetable kurma (1 bowl),300,54.0,7.0,5.0,3.0,3.0,lunch
+Moong dal tadka (1 bowl),150,22.0,9.0,3.5,1.5,5.0,lunch
+Masoor dal (1 bowl),140,21.0,8.5,3.0,1.5,4.5,lunch
+Toor dal (1 bowl),145,22.0,8.0,3.0,2.0,5.0,lunch
+Urad dal (1 bowl),160,20.0,9.0,4.0,1.5,4.5,lunch
+Chana dal (1 bowl),170,24.0,8.5,4.0,2.5,5.5,lunch
+"Mixed dal (panchmel dal, 1 bowl)",155,22.0,9.0,3.5,2.0,5.0,lunch
+"Dal makhani (light, 1 bowl)",180,22.0,8.0,6.0,2.5,5.0,lunch
+Sambar (1 bowl),100,15.0,5.0,2.5,3.0,4.0,lunch
+Rasam (1 bowl),40,6.0,2.0,0.5,1.5,1.5,lunch
+Dal dhokli (1 bowl),200,30.0,7.0,4.0,2.5,4.0,lunch
+Kadhi (1 bowl),130,10.0,5.0,6.0,4.0,1.5,lunch
+Punjabi chole (1 bowl),190,28.0,8.0,5.0,3.5,7.0,lunch
+"Rajma (kidney bean curry, 1 bowl)",180,25.0,8.0,4.0,2.5,6.5,lunch
+"Lobia curry (black‑eyed pea, 1 bowl)",170,25.0,8.0,3.0,2.5,6.0,lunch
+Kala chana curry (1 bowl),185,28.0,8.5,3.5,3.0,7.0,lunch
+Soybean chunk curry (1 bowl),190,12.0,15.0,7.0,2.5,5.0,lunch
+Sprouted moong curry (1 bowl),140,20.0,7.0,2.5,2.5,5.0,lunch
+"Matar paneer (light, 1 bowl)",200,12.0,10.0,10.0,3.5,3.5,lunch
+"Palak paneer (light, 1 bowl)",180,10.0,10.0,9.0,3.0,4.0,lunch
+"Paneer butter masala (light, 1 bowl)",210,10.0,11.0,12.0,5.0,2.5,lunch
+"Aloo gobi (dry, 1 bowl)",130,15.0,3.0,5.5,2.5,3.5,lunch
+Bhindi masala (1 bowl),120,10.0,2.5,6.0,3.0,4.0,lunch
+Baingan bharta (1 bowl),100,12.0,2.5,4.5,5.0,5.0,lunch
+"Mix vegetable curry (dry, 1 bowl)",110,15.0,3.0,4.0,4.0,4.0,lunch
+Lauki curry (1 bowl),70,11.0,2.0,1.5,3.5,3.0,lunch
+Tinda curry (1 bowl),75,11.0,2.0,1.8,3.5,3.0,lunch
+Karela curry (1 bowl),80,10.0,2.5,2.5,2.5,4.0,lunch
+Methi aloo (1 bowl),125,15.0,3.0,5.0,3.0,4.0,lunch
+Drumstick curry (1 bowl),90,10.0,3.0,3.5,3.0,5.0,lunch
+"Cabbage curry (dry, 1 bowl)",75,10.0,2.0,2.0,3.5,3.5,lunch
+"Cauliflower curry (dry, 1 bowl)",85,9.0,3.0,3.5,2.5,3.5,lunch
+Beans thoran (1 bowl),110,10.0,3.0,6.0,2.5,5.0,lunch
+Cabbage thoran (1 bowl),95,9.0,2.5,5.0,3.0,4.0,lunch
+Avial (1 bowl),130,12.0,3.5,7.0,3.5,5.0,lunch
+Erissery (1 bowl),120,14.0,3.0,6.0,4.0,4.0,lunch
+Olan (1 bowl),90,10.0,2.5,4.0,3.0,3.0,lunch
+Kootu (1 bowl),130,18.0,6.0,3.5,3.0,5.0,lunch
+Poricha kootu (1 bowl),120,17.0,5.5,3.0,2.5,4.5,lunch
+Puli kuzhambu (1 bowl),90,10.0,2.5,3.5,3.0,2.5,lunch
+Vatha kuzhambu (1 bowl),85,9.0,2.5,3.5,2.5,2.5,lunch
+"Potato curry (dry, 1 bowl)",140,22.0,2.5,4.5,1.5,2.5,lunch
+Green beans stir‑fry (1 bowl),80,10.0,2.5,3.0,2.5,4.0,lunch
+Capsicum curry (1 bowl),95,11.0,2.0,4.5,4.0,2.5,lunch
+Spinach curry (1 bowl),70,8.0,3.5,2.5,1.5,4.5,lunch
+Bottle gourd sabzi (1 bowl),60,10.0,1.5,1.2,3.0,2.5,lunch
+"Tandoori chicken (without skin, 2 pieces)",180,2.0,28.0,6.0,0.5,0.2,lunch
+"Chicken curry (low oil, 1 bowl)",200,5.0,22.0,9.0,2.0,1.5,lunch
+Chicken stew (1 bowl),180,6.0,20.0,8.0,2.5,1.5,lunch
+"Pepper chicken (dry, 1 bowl)",200,4.0,25.0,8.5,0.5,0.5,lunch
+Chicken do pyaza (1 bowl),210,6.0,23.0,9.0,2.5,1.0,lunch
+"Egg curry (2 eggs, 1 bowl)",190,6.0,11.0,12.0,2.5,2.0,lunch
+"Fish curry (south Indian, 1 bowl)",170,5.0,20.0,7.0,2.0,1.5,lunch
+Fish moilee (1 bowl),190,5.0,18.0,10.0,2.5,1.0,lunch
+"Prawn curry (light, 1 bowl)",180,6.0,17.0,8.0,2.5,1.5,lunch
+Tandoori fish (1 piece),150,2.0,23.0,5.0,0.5,0.2,lunch
+"Grilled fish (spiced, 1 piece)",140,1.0,24.0,4.5,0.2,0.1,lunch
+"Mutton curry (low oil, 1 bowl)",230,5.0,22.0,12.0,2.0,1.5,lunch
+"Keema curry (low oil, 1 bowl)",220,5.0,20.0,12.0,2.0,1.5,lunch
+"Chicken lollipop (baked, 2 pieces)",210,6.0,22.0,10.0,1.5,0.5,lunch
+"Chicken 65 (baked, 1 bowl)",200,5.0,24.0,9.0,1.5,0.5,lunch
+"Anda bhurji (2 eggs, 1 bowl)",190,3.5,14.0,13.0,1.5,0.5,lunch
+Egg masala (2 boiled eggs in gravy),200,5.0,11.0,14.0,2.5,1.0,lunch
+"Fish tikka (baked, 2 pieces)",160,2.5,22.0,6.0,0.8,0.3,lunch
+"Chicken tikka (without cream, 2 pieces)",170,2.0,25.0,6.5,0.5,0.2,lunch
+"Malai chicken (light, 1 bowl)",190,4.0,23.0,8.0,2.0,0.5,lunch
+"Chicken korma (light, 1 bowl)",200,6.0,22.0,9.0,3.0,1.0,lunch
+Prawn masala (1 bowl),190,5.0,18.0,9.0,2.5,1.5,lunch
+"Fish fry (minimal oil, 1 piece)",150,2.0,21.0,6.0,0.5,0.2,lunch
+"Mutton rogan josh (light, 1 bowl)",210,5.0,21.0,11.0,2.0,1.0,lunch
+Chicken saagwala (1 bowl),180,5.0,22.0,7.0,2.0,2.5,lunch
+Sambar rice (1 plate),350,65.0,10.0,6.0,4.0,6.0,lunch
+Curd rice (1 plate),300,55.0,8.0,5.0,5.0,2.5,lunch
+Lemon rice (1 plate),320,62.0,6.0,5.0,2.0,3.0,lunch
+Tomato rice (1 plate),330,64.0,6.5,5.5,4.5,3.0,lunch
+Coconut rice (1 plate),380,60.0,7.0,11.0,3.0,4.0,lunch
+Bisi bele bath (1 plate),360,65.0,11.0,6.0,6.0,6.0,lunch
+"Puliyodharai (tamarind rice, 1 plate)",350,68.0,6.0,5.0,5.0,4.0,lunch
+"Vegetable biryani (light, 1 plate)",380,65.0,8.0,8.0,4.0,4.5,lunch
+"Chicken biryani (light, 1 plate)",420,60.0,18.0,10.0,3.5,3.0,lunch
+"Egg biryani (light, 1 plate)",390,62.0,14.0,9.0,3.0,3.0,lunch
+"Prawn biryani (light, 1 plate)",400,60.0,16.0,10.0,3.0,3.0,lunch
+South Indian full meal (rice + sambar + rasam + poriyal),550,95.0,15.0,10.0,5.0,8.0,lunch
+Beans poriyal (1 bowl),90,10.0,3.0,4.0,2.5,4.0,lunch
+Cabbage poriyal (1 bowl),80,9.0,2.5,3.5,3.0,3.5,lunch
+Carrot poriyal (1 bowl),85,11.0,2.0,3.5,4.5,3.0,lunch
+Beetroot poriyal (1 bowl),80,10.0,2.0,3.0,5.0,2.5,lunch
+Parangikkai kootu (1 bowl),120,16.0,5.0,3.5,3.0,4.0,lunch
+Avaraikkai kootu (1 bowl),125,15.0,5.5,4.0,2.5,4.5,lunch
+Molagootal (1 bowl),100,14.0,4.0,3.0,2.5,4.0,lunch
+Aviyal (1 bowl),130,12.0,3.5,7.0,3.5,5.0,lunch
+Chole bhature (1 bhatura + 1 bowl chole),500,70.0,12.0,18.0,4.0,7.0,lunch
+Rajma chawal (1 bowl rajma + 1 cup rice),450,75.0,15.0,8.0,3.5,8.0,lunch
+Kadhi chawal (1 bowl kadhi + 1 cup rice),400,70.0,10.0,8.0,5.0,3.0,lunch
+Aloo paratha with curd (1 paratha + 1 bowl curd),380,50.0,10.0,14.0,4.0,5.5,lunch
+Paneer paratha with raita (1 paratha + 1 bowl raita),420,48.0,15.0,16.0,3.5,5.0,lunch
+Mix vegetable with 2 rotis,350,55.0,10.0,8.0,4.0,7.0,lunch
+Palak paneer with 2 rotis,400,50.0,16.0,14.0,3.5,6.0,lunch
+Matar paneer with 2 rotis,420,52.0,16.0,15.0,4.0,5.5,lunch
+Dal makhani with rice (1 bowl dal + 1 cup rice),420,70.0,14.0,9.0,3.5,6.0,lunch
+Sarson ka saag with makki roti (2 rotis + 1 bowl saag),450,65.0,12.0,14.0,4.0,9.0,lunch
+Baingan bharta with 2 rotis,320,52.0,8.0,8.0,5.0,7.0,lunch
+Bhindi masala with 2 rotis,330,50.0,8.0,9.0,4.5,6.0,lunch
+Gobi masala with 2 rotis,320,52.0,8.5,8.0,3.5,6.0,lunch
+Aloo matar with 2 rotis,340,56.0,9.0,7.5,3.5,5.5,lunch
+Malai kofta (light) with 2 rotis,380,54.0,10.0,12.0,4.0,4.5,lunch
+Shahi paneer (light) with 2 rotis,400,52.0,14.0,13.0,4.5,4.5,lunch
+Kadhai paneer (light) with 2 rotis,390,50.0,15.0,13.0,4.0,5.0,lunch
+Mutter mushroom with 2 rotis,350,52.0,11.0,10.0,3.5,5.5,lunch
+Soya chaap (grilled) with salad (1 plate),300,25.0,20.0,12.0,2.5,6.0,lunch
+Stuffed capsicum with 2 rotis,330,52.0,9.0,8.5,4.0,6.0,lunch
+"Grilled chicken salad (with light dressing, 1 bowl)",280,10.0,30.0,12.0,4.0,5.0,lunch
+"Caesar salad (light dressing, 1 bowl)",250,12.0,15.0,15.0,3.0,4.0,lunch
+Greek salad (1 bowl),200,10.0,8.0,14.0,5.0,4.0,lunch
+Quinoa salad with vegetables (1 bowl),260,35.0,8.0,9.0,5.0,6.0,lunch
+Tuna salad (1 bowl),240,8.0,22.0,12.0,3.0,2.0,lunch
+"Chicken wrap (whole wheat, 1 wrap)",320,35.0,25.0,10.0,4.0,5.0,lunch
+"Vegetable wrap (whole wheat, 1 wrap)",280,40.0,8.0,9.0,5.0,6.0,lunch
+"Turkey sandwich (whole wheat, 1 sandwich)",300,35.0,22.0,8.0,4.0,4.0,lunch
+"Club sandwich (whole wheat, 1 sandwich)",350,40.0,20.0,12.0,5.0,4.0,lunch
+"Vegetable sandwich (whole wheat, 1 sandwich)",270,42.0,9.0,7.0,5.0,5.0,lunch
+Hummus and veggie wrap (1 wrap),300,42.0,10.0,10.0,4.0,7.0,lunch
+Falafel wrap (1 wrap),340,45.0,10.0,12.0,5.0,6.0,lunch
+"Chicken burger (whole wheat bun, grilled, 1 burger)",350,35.0,28.0,12.0,5.0,4.0,lunch
+"Veggie burger (whole wheat bun, 1 burger)",300,40.0,12.0,10.0,6.0,5.0,lunch
+"Fish tacos (soft corn tortilla, 2 tacos)",280,30.0,18.0,10.0,3.0,4.0,lunch
+Shrimp tacos (2 tacos),260,28.0,20.0,8.0,3.0,3.5,lunch
+"Chicken quesadilla (whole wheat, 1 quesadilla)",340,38.0,22.0,12.0,3.5,5.0,lunch
+"Bean burrito (whole wheat, 1 burrito)",350,48.0,12.0,10.0,4.0,8.0,lunch
+Brown rice bowl with chicken (1 bowl),380,45.0,28.0,10.0,4.0,5.0,lunch
+Quinoa bowl with veggies (1 bowl),320,42.0,10.0,11.0,5.0,7.0,lunch
+Lentil soup with whole grain bread (1 bowl + 1 slice),250,40.0,12.0,4.0,4.0,8.0,lunch
+Minestrone soup (1 bowl),150,22.0,6.0,3.5,5.0,4.5,lunch
+Tomato basil soup (1 bowl),120,18.0,3.0,4.0,8.0,2.5,lunch
+Pumpkin soup (1 bowl),110,16.0,2.5,4.0,6.0,3.0,lunch
+"Broccoli cheddar soup (light, 1 bowl)",160,14.0,8.0,8.0,4.0,3.0,lunch
+Chicken noodle soup (1 bowl),130,15.0,10.0,3.5,2.0,1.5,lunch
+Vegetable soup (1 bowl),80,12.0,3.0,2.0,4.0,3.5,lunch
+Mushroom soup (1 bowl),100,10.0,3.5,5.0,3.0,2.0,lunch
+"French onion soup (light, 1 bowl)",90,10.0,4.0,3.0,4.0,1.5,lunch
+"Clam chowder (light, 1 bowl)",140,15.0,8.0,5.0,3.0,1.5,lunch
+Grilled salmon with asparagus (1 fillet + 1 cup asparagus),350,5.0,35.0,20.0,2.0,3.0,lunch
+Baked cod with vegetables (1 fillet + 1 cup veg),280,10.0,30.0,12.0,3.0,3.5,lunch
+Herb roasted chicken breast (1 breast + veggies),300,8.0,35.0,12.0,2.0,3.0,lunch
+Turkey meatballs with zucchini noodles (1 serving),320,12.0,28.0,16.0,4.0,3.5,lunch
+"Spaghetti bolognese (whole wheat, 1 cup pasta + sauce)",380,50.0,22.0,10.0,6.0,6.0,lunch
+Pasta primavera (1 cup),280,45.0,8.0,7.0,5.0,5.0,lunch
+Penne arrabbiata (1 cup),260,48.0,8.0,5.0,5.0,4.0,lunch
+"Vegetable lasagna (light cheese, 1 piece)",320,35.0,15.0,12.0,6.0,5.0,lunch
+"Mac and cheese (whole wheat, light, 1 cup)",300,42.0,12.0,10.0,5.0,3.5,lunch
+Ratatouille (1 cup),120,15.0,3.0,5.0,7.0,4.0,lunch
+"Stuffed bell peppers (quinoa, 2 halves)",250,35.0,8.0,8.0,6.0,6.0,lunch
+"Eggplant parmesan (baked, 1 serving)",280,20.0,12.0,15.0,7.0,5.0,lunch
+Zucchini lasagna (1 serving),240,15.0,14.0,13.0,5.0,4.0,lunch
+Cauliflower steak (1 steak + veggies),180,18.0,6.0,9.0,5.0,5.0,lunch
+Portobello mushroom burger (1 burger),250,25.0,8.0,12.0,5.0,4.0,lunch
+Chickpea curry (1 bowl),220,30.0,8.0,7.0,5.0,7.0,lunch
+Lentil shepherd's pie (1 serving),280,38.0,12.0,8.0,6.0,7.0,lunch
+Vegetable stir‑fry with tofu (1 bowl),220,18.0,12.0,10.0,5.0,5.0,lunch
+Chicken stir‑fry with broccoli (1 bowl),260,12.0,28.0,10.0,4.0,4.0,lunch
+"Beef and broccoli (light sauce, 1 bowl)",280,10.0,30.0,12.0,3.0,3.0,lunch
+Shrimp stir‑fry (1 bowl),240,12.0,25.0,9.0,4.0,3.5,lunch
+"Sushi rolls (cucumber/avocado, 6 pieces)",250,45.0,5.0,4.0,5.0,3.0,lunch
+Sashimi (10 pieces),200,2.0,30.0,8.0,0.5,0.0,lunch
+Brown rice sushi (6 pieces),280,50.0,6.0,4.0,4.0,3.5,lunch
+"Poke bowl (light sauce, 1 bowl)",350,40.0,25.0,10.0,5.0,4.0,lunch
+Buddha bowl (1 bowl),320,40.0,12.0,12.0,6.0,8.0,lunch
+Kale and quinoa salad (1 bowl),280,35.0,8.0,11.0,5.0,6.0,lunch
+"Chicken fajitas (no tortilla, 1 serving)",250,12.0,28.0,10.0,4.0,4.0,lunch
+Steak salad (1 bowl),320,10.0,30.0,16.0,3.0,4.0,lunch
+"Cobb salad (light dressing, 1 bowl)",300,12.0,25.0,16.0,3.5,4.0,lunch
+Nicoise salad (1 bowl),280,15.0,18.0,15.0,4.0,4.5,lunch
+Caprese salad (1 bowl),250,8.0,12.0,18.0,5.0,2.0,lunch
+Watermelon feta salad (1 bowl),180,18.0,5.0,10.0,12.0,2.0,lunch
+Roasted vegetable salad (1 bowl),200,22.0,5.0,10.0,6.0,5.0,lunch
+"Chicken pesto pasta (light, 1 cup)",350,40.0,22.0,12.0,3.0,4.0,lunch
+Shrimp scampi with zucchini noodles (1 serving),280,10.0,25.0,14.0,3.0,2.5,lunch
+Clams in white wine sauce (1 serving),200,8.0,20.0,8.0,2.0,1.0,lunch
+Mussels in tomato sauce (1 serving),220,12.0,22.0,8.0,4.0,2.0,lunch
+Grilled octopus (1 serving),200,5.0,25.0,8.0,1.0,0.5,lunch
+"Calamari (grilled, 1 serving)",180,6.0,22.0,6.0,1.0,0.5,lunch
+"Fish and chips (baked, 1 serving)",350,40.0,20.0,12.0,3.0,4.0,lunch
+"Chicken pot pie (light crust, 1 pie)",380,35.0,20.0,16.0,5.0,4.0,lunch
+"Shepherd's pie (light, 1 serving)",320,35.0,18.0,12.0,5.0,5.0,lunch
+Meatloaf (lean turkey) with mashed potatoes (1 slice + 1/2 cup),350,25.0,28.0,14.0,4.0,3.0,lunch
+"Baked ziti (light cheese, 1 cup)",320,42.0,16.0,10.0,6.0,3.5,lunch
+"Stuffed shells (ricotta, spinach, 3 shells)",300,30.0,15.0,12.0,5.0,3.0,lunch
+Ravioli (whole wheat) with marinara (1 cup),280,45.0,12.0,6.0,5.0,5.0,lunch
+Gnocchi with pesto (1 cup),320,48.0,8.0,10.0,2.0,3.0,lunch
+Polenta with mushroom ragu (1 cup),240,35.0,6.0,8.0,3.0,4.0,lunch
+"Mashed potatoes (with skim milk, 1 cup)",180,35.0,4.0,2.5,2.0,3.0,lunch
+"Sweet potato fries (baked, 1 serving)",200,30.0,2.0,7.0,8.0,4.0,lunch
+Roasted potatoes with rosemary (1 cup),180,28.0,3.0,6.0,1.5,3.0,lunch
+Steamed broccoli (1 cup),55,11.0,4.0,0.6,2.0,5.0,lunch
+Glazed carrots (1 cup),100,20.0,1.5,2.5,12.0,4.0,lunch
+Sautéed green beans (1 cup),80,10.0,2.0,3.5,3.0,4.0,lunch
+Cauliflower rice (1 cup),25,5.0,2.0,0.3,2.0,2.5,lunch
+Zucchini noodles (1 cup),30,5.0,1.5,0.4,3.0,1.5,lunch
+Spaghetti squash (1 cup),42,10.0,1.0,0.4,4.0,2.0,lunch
+Butternut squash soup (1 bowl),120,22.0,2.0,3.0,6.0,4.0,lunch
+Corn on the cob (1 ear),80,18.0,2.5,1.0,4.0,2.0,lunch
+Grilled asparagus (1 cup),40,5.0,4.0,2.0,2.0,3.0,lunch
+Roasted Brussels sprouts (1 cup),90,14.0,4.0,3.5,3.0,4.5,lunch
+Kale chips (1 cup),50,6.0,3.0,2.0,1.0,2.5,lunch
+"Coleslaw (light dressing, 1 cup)",100,12.0,2.0,5.0,8.0,3.0,lunch
+"Potato salad (light, 1 cup)",180,25.0,3.0,7.0,4.0,2.5,lunch
+"Pasta salad (light, 1 cup)",200,30.0,5.0,6.0,4.0,2.0,lunch
+Fruit salad (1 cup),80,20.0,1.0,0.5,15.0,3.0,lunch
+Cottage cheese with pineapple (1 cup),150,12.0,15.0,5.0,10.0,1.0,lunch
+Yogurt parfait (1 cup),180,25.0,8.0,5.0,15.0,2.0,lunch
+Chia pudding (1 cup),180,15.0,6.0,10.0,5.0,8.0,lunch
+Smoothie bowl (1 bowl),200,35.0,6.0,4.0,20.0,5.0,lunch
+Whole wheat roti (1 piece),80,15.0,2.5,0.5,0.2,2.5,dinner
+Jowar roti (1 piece),85,17.0,2.5,0.5,0.2,3.0,dinner
+Bajra roti (1 piece),90,17.0,2.8,1.0,0.3,3.5,dinner
+Ragi roti (1 piece),85,17.5,2.5,0.6,0.2,4.0,dinner
+Multigrain roti (1 piece),85,16.0,3.0,0.8,0.3,3.5,dinner
+Missi roti (1 piece),95,16.0,4.0,1.5,0.5,3.0,dinner
+Makki ki roti (1 piece),100,19.0,2.5,1.5,0.5,3.0,dinner
+"Naan (whole wheat, 1 piece)",160,28.0,5.0,3.0,1.5,2.5,dinner
+Tandoori roti (1 piece),90,17.0,2.8,0.8,0.3,2.0,dinner
+"Kulcha (whole wheat, 1 piece)",150,26.0,4.5,3.0,1.2,2.5,dinner
+Plain basmati rice (1 cup cooked),200,44.0,4.0,0.4,0.1,0.5,dinner
+Brown rice (1 cup cooked),215,45.0,5.0,1.8,0.5,3.5,dinner
+Jeera rice (1 cup),240,48.0,4.5,3.5,0.5,1.5,dinner
+"Vegetable biryani (light, 1 plate)",380,65.0,8.0,8.0,4.0,4.5,dinner
+"Chicken biryani (light, 1 plate)",420,60.0,18.0,10.0,3.5,3.0,dinner
+"Egg biryani (light, 1 plate)",390,62.0,14.0,9.0,3.0,3.0,dinner
+"Prawn biryani (light, 1 plate)",400,60.0,16.0,10.0,3.0,3.0,dinner
+"Mutton biryani (light, 1 plate)",450,58.0,20.0,14.0,3.0,2.5,dinner
+Khichdi (1 bowl),220,38.0,7.0,4.0,1.5,3.5,dinner
+Quinoa khichdi (1 bowl),210,34.0,7.5,4.0,1.5,4.5,dinner
+Oats khichdi (1 bowl),200,32.0,7.0,3.5,1.5,4.0,dinner
+Bajra khichdi (1 bowl),215,38.0,6.5,3.5,1.0,4.5,dinner
+Ragi khichdi (1 bowl),210,40.0,6.0,3.0,1.0,5.0,dinner
+"Pulao (mixed vegetable, 1 cup)",230,42.0,5.5,4.0,3.0,3.0,dinner
+Peas pulao (1 cup),235,44.0,6.0,4.0,2.5,4.0,dinner
+Mushroom pulao (1 cup),240,40.0,6.5,5.0,2.0,3.5,dinner
+Soya pulao (1 cup),250,38.0,10.0,6.0,2.5,4.0,dinner
+Paneer pulao (1 cup),280,40.0,10.0,8.0,2.0,2.5,dinner
+Curd rice (1 bowl),210,38.0,6.0,4.0,3.5,1.5,dinner
+Lemon rice (1 cup),220,44.0,4.0,3.0,1.0,2.0,dinner
+Moong dal tadka (1 bowl),150,22.0,9.0,3.5,1.5,5.0,dinner
+Masoor dal (1 bowl),140,21.0,8.5,3.0,1.5,4.5,dinner
+Toor dal (1 bowl),145,22.0,8.0,3.0,2.0,5.0,dinner
+Urad dal (1 bowl),160,20.0,9.0,4.0,1.5,4.5,dinner
+Chana dal (1 bowl),170,24.0,8.5,4.0,2.5,5.5,dinner
+Mixed dal (1 bowl),155,22.0,9.0,3.5,2.0,5.0,dinner
+"Dal makhani (light, 1 bowl)",180,22.0,8.0,6.0,2.5,5.0,dinner
+Sambar (1 bowl),100,15.0,5.0,2.5,3.0,4.0,dinner
+Rasam (1 bowl),40,6.0,2.0,0.5,1.5,1.5,dinner
+Dal dhokli (1 bowl),200,30.0,7.0,4.0,2.5,4.0,dinner
+Kadhi (1 bowl),130,10.0,5.0,6.0,4.0,1.5,dinner
+Punjabi chole (1 bowl),190,28.0,8.0,5.0,3.5,7.0,dinner
+Rajma (1 bowl),180,25.0,8.0,4.0,2.5,6.5,dinner
+Lobia curry (1 bowl),170,25.0,8.0,3.0,2.5,6.0,dinner
+Kala chana curry (1 bowl),185,28.0,8.5,3.5,3.0,7.0,dinner
+"Aloo gobi (dry, 1 bowl)",130,15.0,3.0,5.5,2.5,3.5,dinner
+Bhindi masala (1 bowl),120,10.0,2.5,6.0,3.0,4.0,dinner
+Baingan bharta (1 bowl),100,12.0,2.5,4.5,5.0,5.0,dinner
+"Mix vegetable curry (dry, 1 bowl)",110,15.0,3.0,4.0,4.0,4.0,dinner
+Lauki curry (1 bowl),70,11.0,2.0,1.5,3.5,3.0,dinner
+Karela curry (1 bowl),80,10.0,2.5,2.5,2.5,4.0,dinner
+Methi aloo (1 bowl),125,15.0,3.0,5.0,3.0,4.0,dinner
+Drumstick curry (1 bowl),90,10.0,3.0,3.5,3.0,5.0,dinner
+"Cabbage curry (dry, 1 bowl)",75,10.0,2.0,2.0,3.5,3.5,dinner
+"Cauliflower curry (dry, 1 bowl)",85,9.0,3.0,3.5,2.5,3.5,dinner
+Beans thoran (1 bowl),110,10.0,3.0,6.0,2.5,5.0,dinner
+Avial (1 bowl),130,12.0,3.5,7.0,3.5,5.0,dinner
+Erissery (1 bowl),120,14.0,3.0,6.0,4.0,4.0,dinner
+Olan (1 bowl),90,10.0,2.5,4.0,3.0,3.0,dinner
+Kootu (1 bowl),130,18.0,6.0,3.5,3.0,5.0,dinner
+Poricha kootu (1 bowl),120,17.0,5.5,3.0,2.5,4.5,dinner
+Puli kuzhambu (1 bowl),90,10.0,2.5,3.5,3.0,2.5,dinner
+"Potato curry (dry, 1 bowl)",140,22.0,2.5,4.5,1.5,2.5,dinner
+Green beans stir‑fry (1 bowl),80,10.0,2.5,3.0,2.5,4.0,dinner
+Spinach curry (1 bowl),70,8.0,3.5,2.5,1.5,4.5,dinner
+"Palak paneer (light, 1 bowl)",180,10.0,10.0,9.0,3.0,4.0,dinner
+"Matar paneer (light, 1 bowl)",200,12.0,10.0,10.0,3.5,3.5,dinner
+"Shahi paneer (light, 1 bowl)",210,11.0,11.0,12.0,5.0,2.5,dinner
+"Kadhai paneer (light, 1 bowl)",200,10.0,12.0,11.0,4.0,3.0,dinner
+"Paneer butter masala (light, 1 bowl)",210,10.0,11.0,12.0,5.0,2.5,dinner
+Paneer do pyaza (1 bowl),190,9.0,11.0,10.0,4.0,3.0,dinner
+Paneer bhurji (1 bowl),180,5.0,15.0,11.0,2.0,1.0,dinner
+Tofu matar (1 bowl),170,10.0,12.0,8.0,3.0,3.5,dinner
+Tofu palak (1 bowl),160,8.0,12.0,7.0,2.5,4.0,dinner
+Tofu curry (1 bowl),170,9.0,11.0,8.0,3.0,3.0,dinner
+"Paneer tikka (without heavy oil, 4 pieces)",220,6.0,18.0,13.0,2.5,1.5,dinner
+Grilled paneer (100g),200,5.0,18.0,12.0,1.5,1.0,dinner
+"Tandoori chicken (without skin, 2 pieces)",180,2.0,28.0,6.0,0.5,0.2,dinner
+"Chicken curry (low oil, 1 bowl)",200,5.0,22.0,9.0,2.0,1.5,dinner
+Chicken stew (1 bowl),180,6.0,20.0,8.0,2.5,1.5,dinner
+"Pepper chicken (dry, 1 bowl)",200,4.0,25.0,8.5,0.5,0.5,dinner
+Chicken do pyaza (1 bowl),210,6.0,23.0,9.0,2.5,1.0,dinner
+"Egg curry (2 eggs, 1 bowl)",190,6.0,11.0,12.0,2.5,2.0,dinner
+"Fish curry (south Indian, 1 bowl)",170,5.0,20.0,7.0,2.0,1.5,dinner
+Fish moilee (1 bowl),190,5.0,18.0,10.0,2.5,1.0,dinner
+"Prawn curry (light, 1 bowl)",180,6.0,17.0,8.0,2.5,1.5,dinner
+Tandoori fish (1 piece),150,2.0,23.0,5.0,0.5,0.2,dinner
+"Grilled fish (spiced, 1 piece)",140,1.0,24.0,4.5,0.2,0.1,dinner
+"Mutton curry (low oil, 1 bowl)",230,5.0,22.0,12.0,2.0,1.5,dinner
+"Keema curry (low oil, 1 bowl)",220,5.0,20.0,12.0,2.0,1.5,dinner
+"Chicken lollipop (baked, 2 pieces)",210,6.0,22.0,10.0,1.5,0.5,dinner
+"Chicken 65 (baked, 1 bowl)",200,5.0,24.0,9.0,1.5,0.5,dinner
+"Anda bhurji (2 eggs, 1 bowl)",190,3.5,14.0,13.0,1.5,0.5,dinner
+Egg masala (2 boiled eggs in gravy),200,5.0,11.0,14.0,2.5,1.0,dinner
+"Fish tikka (baked, 2 pieces)",160,2.5,22.0,6.0,0.8,0.3,dinner
+"Chicken tikka (without cream, 2 pieces)",170,2.0,25.0,6.5,0.5,0.2,dinner
+"Malai chicken (light, 1 bowl)",190,4.0,23.0,8.0,2.0,0.5,dinner
+"Chicken korma (light, 1 bowl)",200,6.0,22.0,9.0,3.0,1.0,dinner
+Prawn masala (1 bowl),190,5.0,18.0,9.0,2.5,1.5,dinner
+"Fish fry (minimal oil, 1 piece)",150,2.0,21.0,6.0,0.5,0.2,dinner
+"Mutton rogan josh (light, 1 bowl)",210,5.0,21.0,11.0,2.0,1.0,dinner
+Chicken saagwala (1 bowl),180,5.0,22.0,7.0,2.0,2.5,dinner
+2 rotis + dal + sabzi (1 plate),400,65.0,15.0,8.0,4.0,10.0,dinner
+2 rotis + chole (1 plate),450,70.0,14.0,10.0,4.5,9.0,dinner
+2 rotis + rajma (1 plate),430,68.0,14.0,9.0,4.0,9.5,dinner
+2 rotis + paneer sabzi (1 plate),450,60.0,16.0,14.0,4.0,7.0,dinner
+2 rotis + chicken curry (1 plate),480,55.0,28.0,16.0,3.5,6.0,dinner
+2 rotis + fish curry (1 plate),450,55.0,26.0,14.0,3.5,5.5,dinner
+1 cup rice + dal + sabzi (1 plate),420,75.0,13.0,6.0,4.0,8.0,dinner
+1 cup rice + sambar + poriyal (1 plate),380,70.0,11.0,5.0,5.0,6.0,dinner
+1 cup rice + rasam + curd (1 plate),320,60.0,8.0,4.0,4.0,3.0,dinner
+Vegetable biryani + raita (1 plate),450,75.0,10.0,10.0,5.0,5.0,dinner
+Chicken biryani + raita (1 plate),500,70.0,22.0,13.0,4.5,4.0,dinner
+Egg biryani + raita (1 plate),470,72.0,18.0,12.0,4.0,4.0,dinner
+Prawn biryani + raita (1 plate),480,70.0,20.0,13.0,4.0,4.0,dinner
+Khichdi + papad + pickle (1 plate),300,50.0,9.0,6.0,2.5,5.0,dinner
+Quinoa khichdi + salad (1 plate),280,42.0,9.0,6.0,3.0,6.0,dinner
+Oats khichdi + raita (1 plate),270,40.0,8.5,5.5,2.5,5.5,dinner
+Missi roti + besan chilla + salad (1 plate),380,55.0,14.0,10.0,3.5,8.0,dinner
+Stuffed paratha (1) + curd (1 bowl),320,42.0,8.0,12.0,3.0,5.0,dinner
+Thepla (2) + chunda (1 tbsp) + curd,350,55.0,9.0,9.0,6.0,6.0,dinner
+Roti + saag + makhan (light),380,55.0,10.0,11.0,3.0,8.0,dinner
+Grilled salmon (6 oz) with steamed broccoli,400,10.0,40.0,22.0,2.0,3.0,dinner
+Grilled chicken breast (6 oz) with quinoa (1 cup),450,35.0,45.0,12.0,2.5,4.0,dinner
+"Beef steak (lean, 4 oz) with roasted potatoes",500,30.0,35.0,22.0,2.0,3.5,dinner
+"Pork chop (lean, 4 oz) with apple sauce",420,20.0,30.0,22.0,8.0,2.0,dinner
+Lamb chops (3 oz) with mint sauce and veggies,380,8.0,25.0,26.0,3.0,2.5,dinner
+Roasted turkey breast (4 oz) with cranberry sauce,300,15.0,35.0,8.0,8.0,1.5,dinner
+Baked salmon with dill and asparagus,380,5.0,38.0,22.0,2.0,2.5,dinner
+Grilled shrimp skewers (8 pcs) with quinoa,350,25.0,30.0,12.0,2.0,3.0,dinner
+Lobster tail (1) with butter (light) and salad,300,5.0,28.0,18.0,1.0,2.0,dinner
+Scallops (6) with lemon butter sauce and veggies,280,8.0,25.0,15.0,2.0,2.0,dinner
+"Spaghetti with meatballs (whole wheat, 1 cup)",420,55.0,22.0,12.0,6.0,6.0,dinner
+"Fettuccine Alfredo (light, 1 cup)",380,45.0,15.0,14.0,4.0,3.0,dinner
+"Lasagna (vegetable, light cheese, 1 piece)",350,40.0,16.0,12.0,6.0,5.0,dinner
+"Lasagna (meat, light cheese, 1 piece)",400,38.0,22.0,16.0,5.0,4.0,dinner
+Ravioli (whole wheat) with marinara (1 cup),320,50.0,14.0,7.0,5.0,5.0,dinner
+Gnocchi with pesto (1 cup),350,52.0,8.0,12.0,2.0,3.0,dinner
+"Mac and cheese (whole wheat, light, 1 cup)",300,42.0,12.0,10.0,5.0,3.5,dinner
+Chicken parmesan (light) with spaghetti,450,48.0,32.0,14.0,6.0,4.0,dinner
+Eggplant parmesan (baked) with salad,350,30.0,14.0,18.0,8.0,5.0,dinner
+Vegetable stir‑fry with tofu (1 bowl),250,20.0,12.0,12.0,5.0,5.0,dinner
+Chicken stir‑fry with broccoli (1 bowl),280,15.0,30.0,10.0,4.0,4.0,dinner
+"Beef and broccoli (light sauce, 1 bowl)",300,12.0,32.0,12.0,3.0,3.0,dinner
+Shrimp stir‑fry (1 bowl),260,14.0,28.0,9.0,4.0,3.5,dinner
+Tofu and vegetable curry (1 bowl),220,18.0,12.0,10.0,4.0,4.0,dinner
+Chickpea curry (1 bowl),220,30.0,8.0,7.0,5.0,7.0,dinner
+Lentil soup with whole grain bread (1 bowl + 1 slice),250,40.0,12.0,4.0,4.0,8.0,dinner
+Minestrone soup with bread (1 bowl + 1 slice),220,35.0,8.0,5.0,5.0,5.0,dinner
+Tomato basil soup with grilled cheese (half sandwich),300,40.0,10.0,10.0,10.0,3.0,dinner
+Pumpkin soup (1 bowl),120,18.0,3.0,4.0,6.0,3.0,dinner
+"Broccoli cheddar soup (light, 1 bowl)",180,16.0,9.0,9.0,4.0,3.0,dinner
+"French onion soup (light, 1 bowl)",120,12.0,5.0,4.0,5.0,1.5,dinner
+"Clam chowder (light, 1 bowl)",160,18.0,9.0,6.0,3.0,1.5,dinner
+Caesar salad with grilled chicken (light dressing),300,12.0,30.0,14.0,3.0,3.0,dinner
+Greek salad with grilled shrimp,280,10.0,25.0,15.0,4.0,4.0,dinner
+Cobb salad (light dressing),320,12.0,28.0,18.0,3.5,4.0,dinner
+Nicoise salad (1 bowl),300,18.0,20.0,16.0,4.0,4.5,dinner
+Caprese salad with balsamic (1 bowl),250,8.0,12.0,18.0,5.0,2.0,dinner
+Quinoa salad with roasted veggies (1 bowl),280,38.0,8.0,10.0,5.0,6.0,dinner
+Buddha bowl (1 bowl),350,45.0,12.0,12.0,6.0,8.0,dinner
+"Sushi platter (12 pieces, assorted)",450,80.0,18.0,6.0,8.0,3.0,dinner
+Sashimi platter (15 pieces),300,3.0,45.0,12.0,0.5,0.0,dinner
+"Poke bowl (light sauce, 1 bowl)",380,45.0,25.0,10.0,5.0,4.0,dinner
+"Burger (lean beef, whole wheat bun) with side salad",450,35.0,30.0,20.0,6.0,4.0,dinner
+Veggie burger (whole wheat bun) with sweet potato fries,420,55.0,12.0,16.0,8.0,7.0,dinner
+Chicken wrap (whole wheat) with side salad,380,40.0,28.0,12.0,5.0,5.0,dinner
+Falafel wrap (whole wheat) with hummus,400,52.0,12.0,15.0,5.0,7.0,dinner
+"Quesadilla (whole wheat, chicken/veggie) with salsa",360,40.0,20.0,14.0,4.0,5.0,dinner
+"Tacos (2, soft corn tortilla, fish/chicken) with slaw",300,30.0,18.0,12.0,3.0,4.0,dinner
+"Enchiladas (2, chicken, light cheese) with beans",400,45.0,25.0,14.0,5.0,6.0,dinner
+Chili con carne (1 bowl) with cornbread,450,50.0,25.0,16.0,8.0,8.0,dinner
+Vegetarian chili (1 bowl) with rice,350,55.0,12.0,8.0,6.0,9.0,dinner
+Ratatouille (1 bowl) with quinoa,280,35.0,6.0,10.0,8.0,6.0,dinner
+"Stuffed bell peppers (2 halves, quinoa/veg)",250,35.0,8.0,8.0,6.0,6.0,dinner
+Portobello mushroom burger (1) with fries (baked),350,40.0,10.0,16.0,5.0,5.0,dinner
+Cauliflower steak (1) with chimichurri,200,20.0,6.0,10.0,5.0,5.0,dinner
+Zucchini noodles with pesto and cherry tomatoes,220,12.0,5.0,16.0,5.0,3.0,dinner
+Spaghetti squash with marinara (1 cup),150,18.0,3.0,7.0,6.0,4.0,dinner
+Mashed cauliflower (1 cup) with gravy,100,10.0,3.0,5.0,3.0,3.0,dinner
+Roasted Brussels sprouts with bacon (1 cup),200,15.0,6.0,12.0,4.0,4.0,dinner
+Grilled asparagus with parmesan (1 cup),120,6.0,6.0,8.0,2.0,3.0,dinner
+Honey glazed carrots (1 cup),130,22.0,2.0,4.0,14.0,4.0,dinner
+Green beans almondine (1 cup),150,10.0,3.0,10.0,4.0,4.0,dinner
+"Creamed spinach (light, 1 cup)",160,10.0,6.0,10.0,3.0,3.5,dinner
+"Mashed potatoes (with skim milk, 1 cup)",180,35.0,4.0,2.5,2.0,3.0,dinner
+Sweet potato mash (1 cup),200,40.0,3.0,4.0,12.0,5.0,dinner
+Roasted potatoes with rosemary (1 cup),180,28.0,3.0,6.0,1.5,3.0,dinner
+Polenta (1 cup) with mushroom ragu,240,35.0,6.0,8.0,3.0,4.0,dinner
+"Risotto (mushroom, light, 1 cup)",280,48.0,7.0,6.0,2.0,2.5,dinner
+"Paella (seafood, 1 cup)",350,50.0,18.0,8.0,3.0,2.5,dinner
+"Jambalaya (chicken, sausage, 1 cup)",320,40.0,18.0,10.0,4.0,2.5,dinner
+"Gumbo (seafood, 1 cup)",250,20.0,15.0,12.0,3.0,2.5,dinner
+"Bouillabaisse (fish stew, 1 bowl)",280,12.0,25.0,14.0,4.0,2.0,dinner
+"Cioppino (seafood stew, 1 bowl)",300,15.0,28.0,14.0,4.0,2.5,dinner
+"Shepherd's pie (light, 1 serving)",340,38.0,20.0,12.0,5.0,5.0,dinner
+"Pot pie (chicken, light crust, 1 pie)",400,38.0,22.0,16.0,5.0,4.0,dinner
+Meatloaf (lean turkey) with gravy (1 slice),280,12.0,25.0,14.0,4.0,2.0,dinner
+Roasted chicken (1/4 chicken) with vegetables,350,10.0,35.0,18.0,3.0,3.0,dinner
+Roasted turkey (4 oz) with gravy and stuffing (light),380,25.0,30.0,16.0,4.0,3.0,dinner
+"Ham (lean, 4 oz) with pineapple salsa",250,10.0,25.0,10.0,6.0,1.0,dinner
+Cornish hen (1/2 hen) with wild rice,400,30.0,30.0,16.0,2.0,2.5,dinner
+Duck breast (4 oz) with cherry sauce,380,15.0,25.0,22.0,8.0,1.5,dinner
+Venison steak (4 oz) with red wine reduction,300,5.0,35.0,12.0,2.0,1.0,dinner
+"Bison burger (lean, whole wheat bun) with salad",400,30.0,35.0,16.0,4.0,4.0,dinner
+Turkey burger (whole wheat bun) with sweet potato fries,420,45.0,30.0,14.0,6.0,5.0,dinner
+Salmon burger (whole wheat bun) with dill sauce,380,30.0,28.0,16.0,4.0,3.0,dinner
+"Fish and chips (baked, 1 serving)",380,45.0,22.0,12.0,3.0,4.0,dinner
+Shrimp scampi with zucchini noodles,300,12.0,28.0,16.0,3.0,2.5,dinner
+Lobster ravioli with light cream sauce,400,45.0,18.0,16.0,4.0,3.0,dinner
+"Crab cakes (2, baked) with remoulade (light)",280,15.0,20.0,14.0,3.0,2.0,dinner
+Mussels in white wine sauce (1 bowl) with bread,350,25.0,25.0,12.0,3.0,2.0,dinner
+Clams in tomato sauce (1 bowl) with pasta,380,50.0,20.0,8.0,5.0,4.0,dinner
+Oysters (6) grilled with spinach,200,8.0,16.0,10.0,1.0,1.5,dinner
+"Ceviche (fish/shrimp, 1 cup) with tostada",220,20.0,20.0,6.0,3.0,2.0,dinner
+Octopus salad (1 bowl),250,10.0,25.0,12.0,2.0,2.5,dinner
+Grilled calamari (1 cup) with lemon,180,6.0,22.0,6.0,1.0,0.5,dinner
+Escargot (6) with garlic butter (light),200,4.0,12.0,14.0,1.0,0.5,dinner
+Foie gras (small portion) with toast,250,5.0,5.0,22.0,1.0,0.5,dinner
+Steak tartare (4 oz) with salad,300,5.0,25.0,18.0,1.0,1.0,dinner
+Beef Wellington (1 slice) with vegetables,450,25.0,25.0,26.0,3.0,2.5,dinner
+Coq au vin (1 serving) with mashed potatoes,400,30.0,30.0,16.0,4.0,3.0,dinner
+Beef bourguignon (1 serving) with noodles,450,35.0,30.0,18.0,4.0,3.0,dinner
+Lamb tagine (1 bowl) with couscous,420,45.0,25.0,14.0,6.0,5.0,dinner
+Chicken tagine (1 bowl) with quinoa,380,35.0,28.0,12.0,5.0,4.0,dinner
+Vegetable tagine (1 bowl) with couscous,320,50.0,8.0,8.0,7.0,6.0,dinner
+Apple (1 medium),95,25.0,0.5,0.3,19.0,4.5,snacks
+Banana (1 medium),105,27.0,1.3,0.3,14.0,3.1,snacks
+Orange (1 medium),62,15.0,1.2,0.2,12.0,3.0,snacks
+Papaya (1 cup cubed),55,14.0,0.9,0.2,11.0,2.5,snacks
+Mango (1 cup sliced),100,25.0,1.4,0.4,23.0,3.0,snacks
+Pomegranate (1 cup arils),145,33.0,2.0,0.5,24.0,7.0,snacks
+Guava (1 medium),70,15.0,2.0,0.5,9.0,6.0,snacks
+Watermelon (1 cup diced),45,11.0,0.9,0.2,9.0,0.6,snacks
+Muskmelon (1 cup diced),55,13.0,1.4,0.3,12.0,1.5,snacks
+Grapes (1 cup),100,27.0,1.0,0.2,23.0,1.5,snacks
+Strawberries (1 cup),50,12.0,1.0,0.5,7.0,3.0,snacks
+Kiwi (1 medium),45,11.0,0.8,0.4,6.5,2.0,snacks
+Pear (1 medium),100,27.0,0.6,0.2,17.0,5.5,snacks
+Peach (1 medium),60,15.0,1.4,0.4,13.0,2.0,snacks
+Plum (1 medium),30,8.0,0.5,0.2,6.5,1.0,snacks
+Dates (2 pieces),110,30.0,1.0,0.2,27.0,3.0,snacks
+Figs (2 dried),100,26.0,1.5,0.4,20.0,4.0,snacks
+Raisins (1 tbsp),40,10.0,0.4,0.1,8.0,0.5,snacks
+Apricots (4 dried),80,20.0,1.5,0.2,16.0,2.5,snacks
+Prunes (3 pieces),70,18.0,0.8,0.1,11.0,2.0,snacks
+Dried cranberries (1 tbsp),30,8.0,0.1,0.1,6.0,0.5,snacks
+Dried cherries (1 tbsp),35,9.0,0.3,0.1,7.0,0.5,snacks
+Dried mango (1 slice),60,15.0,0.5,0.2,13.0,1.0,snacks
+Almonds (10 pieces),70,2.5,2.5,6.0,0.5,1.5,snacks
+Walnuts (5 halves),65,1.5,1.5,6.5,0.3,1.0,snacks
+Cashews (5 pieces),45,2.5,1.5,3.5,0.5,0.5,snacks
+Pistachios (15 pieces),40,2.0,1.5,3.0,0.5,1.0,snacks
+Peanuts (1 tbsp roasted),85,2.5,3.5,7.0,0.5,1.5,snacks
+Pumpkin seeds (1 tbsp),50,1.5,2.5,4.0,0.2,0.8,snacks
+Sunflower seeds (1 tbsp),50,2.0,2.0,4.5,0.2,1.0,snacks
+Sesame seeds (1 tbsp),50,2.0,1.5,4.5,0.1,1.0,snacks
+Flax seeds (1 tbsp ground),55,3.0,2.0,4.5,0.2,3.0,snacks
+Chia seeds (1 tbsp),60,5.0,2.0,4.0,0.0,4.0,snacks
+Hemp seeds (1 tbsp),55,1.5,3.0,4.5,0.2,1.0,snacks
+Macadamia nuts (5 pieces),100,2.0,1.0,10.0,0.5,1.0,snacks
+Plain yogurt (1 cup low‑fat),150,12.0,12.0,4.0,12.0,0.0,snacks
+Greek yogurt (1 cup non‑fat),130,9.0,23.0,0.5,9.0,0.0,snacks
+Cottage cheese (1/2 cup low‑fat),80,3.0,14.0,1.0,2.0,0.0,snacks
+Paneer (1 oz low‑fat),70,1.0,7.0,4.0,0.5,0.0,snacks
+Buttermilk (1 cup),100,12.0,8.0,2.5,12.0,0.0,snacks
+"Lassi (sweet, 1 cup low‑fat)",150,22.0,6.0,3.0,20.0,0.0,snacks
+Roasted chana (1/4 cup),110,16.0,6.0,2.5,1.0,4.0,snacks
+Roasted makhana (1 cup),90,18.0,3.0,1.5,0.5,5.0,snacks
+Roasted peanuts (1 tbsp),85,2.5,3.5,7.0,0.5,1.5,snacks
+Roasted chickpeas (1/4 cup),120,20.0,5.0,2.0,2.0,5.0,snacks
+Roasted soy nuts (1 tbsp),60,3.0,5.0,3.0,0.5,1.5,snacks
+Roasted dal (1/4 cup),100,15.0,6.0,2.0,1.0,3.0,snacks
+Roasted corn (1/2 cup),70,15.0,2.0,1.0,2.0,2.0,snacks
+"Roasted fox nuts (makhana, spiced, 1 cup)",90,18.0,3.0,1.5,0.5,5.0,snacks
+Roasted gram flour vermicelli (1/2 cup),120,20.0,4.0,2.5,1.0,2.0,snacks
+Roasted whole wheat puffs (1 cup),60,12.0,2.0,0.5,0.2,2.0,snacks
+Roasted brown rice flakes (1/2 cup),70,15.0,1.5,0.5,0.2,1.0,snacks
+Roasted oats (1/2 cup),80,14.0,3.0,1.5,0.5,2.5,snacks
+Sprouted moong salad (1 bowl),70,12.0,5.0,0.5,2.0,4.0,snacks
+Sprouted moth salad (1 bowl),75,13.0,5.0,0.5,2.0,4.0,snacks
+Sprouted chana salad (1 bowl),80,14.0,5.0,0.8,2.0,4.0,snacks
+Kala chana chaat (1 bowl),120,18.0,5.0,2.5,3.0,5.0,snacks
+Cucumber sticks with mint chutney (1 cup),30,6.0,1.0,0.2,2.0,1.5,snacks
+Carrot sticks with hung curd dip (1 cup),50,8.0,2.0,1.0,4.0,2.0,snacks
+Roasted beetroot chips (1 cup),60,12.0,1.5,0.5,8.0,2.5,snacks
+Roasted sweet potato chips (1 cup),70,15.0,1.0,0.5,5.0,3.0,snacks
+Baked khakhra (2 pieces),110,16.0,3.0,3.0,1.0,3.5,snacks
+Multigrain thalipeeth (1 piece),130,20.0,4.0,3.5,1.5,4.0,snacks
+Ragi mudde (1 small ball),100,20.0,2.5,0.5,0.2,3.0,snacks
+"Jowar dhani (popped sorghum, 1 cup)",50,10.0,2.0,0.5,0.2,2.0,snacks
+Sprouts bhel (1 cup),120,18.0,4.0,3.0,3.0,4.0,snacks
+Oats chivda (1/2 cup),130,20.0,3.5,3.5,1.5,3.0,snacks
+Poha chivda (1/2 cup),120,20.0,2.5,3.0,1.5,2.0,snacks
+Roasted makhana chaat (1 cup),100,18.0,3.0,2.0,1.0,5.0,snacks
+Roasted peanuts with onion and tomato (1/2 cup),120,6.0,5.0,8.0,2.0,2.5,snacks
+Sprouted moong dhokla (2 pieces),110,16.0,5.0,2.5,1.5,3.0,snacks
+"Vegetable cutlet (baked, 1 piece)",80,10.0,2.5,3.0,2.0,2.5,snacks
+"Paneer tikka (2 pieces, grilled)",120,3.0,10.0,7.0,1.5,0.5,snacks
+Coconut water (1 cup),45,9.0,1.5,0.5,6.0,2.0,snacks
+Tender coconut flesh (1 tbsp),30,3.0,0.5,2.0,2.0,1.0,snacks
+"Amla (gooseberry, 1 piece)",15,3.0,0.5,0.1,1.5,1.0,snacks
+Jamun (1/2 cup),30,7.0,0.5,0.1,5.0,1.5,snacks
+"Ber (Indian jujube, 5 pieces)",40,10.0,0.8,0.1,7.0,2.0,snacks
+Sugarcane juice (1 cup),120,30.0,0.5,0.1,28.0,0.0,snacks
+"Kokum sharbat (no sugar, 1 cup)",20,5.0,0.2,0.1,3.0,0.5,snacks
+Apple (1 medium),95,25.0,0.5,0.3,19.0,4.5,snacks
+Banana (1 medium),105,27.0,1.3,0.3,14.0,3.1,snacks
+Orange (1 medium),62,15.0,1.2,0.2,12.0,3.0,snacks
+Strawberries (1 cup),50,12.0,1.0,0.5,7.0,3.0,snacks
+Blueberries (1 cup),85,21.0,1.1,0.5,15.0,4.0,snacks
+Raspberries (1 cup),65,15.0,1.5,0.8,5.0,8.0,snacks
+Blackberries (1 cup),60,14.0,2.0,0.5,7.0,8.0,snacks
+Grapefruit (1/2),40,10.0,0.8,0.1,8.0,1.5,snacks
+Pineapple (1 cup),80,21.0,1.0,0.2,16.0,2.5,snacks
+Mango (1 cup),100,25.0,1.4,0.4,23.0,3.0,snacks
+Raisins (1 tbsp),40,10.0,0.4,0.1,8.0,0.5,snacks
+Dried apricots (4 pieces),80,20.0,1.5,0.2,16.0,2.5,snacks
+Dates (2 pieces),110,30.0,1.0,0.2,27.0,3.0,snacks
+Prunes (3 pieces),70,18.0,0.8,0.1,11.0,2.0,snacks
+Dried figs (2 pieces),100,26.0,1.5,0.4,20.0,4.0,snacks
+Almonds (10 pieces),70,2.5,2.5,6.0,0.5,1.5,snacks
+Walnuts (5 halves),65,1.5,1.5,6.5,0.3,1.0,snacks
+Cashews (5 pieces),45,2.5,1.5,3.5,0.5,0.5,snacks
+Pistachios (15 pieces),40,2.0,1.5,3.0,0.5,1.0,snacks
+Peanuts (1 tbsp roasted),85,2.5,3.5,7.0,0.5,1.5,snacks
+Pumpkin seeds (1 tbsp),50,1.5,2.5,4.0,0.2,0.8,snacks
+Sunflower seeds (1 tbsp),50,2.0,2.0,4.5,0.2,1.0,snacks
+Chia seeds (1 tbsp),60,5.0,2.0,4.0,0.0,4.0,snacks
+Flax seeds (1 tbsp ground),55,3.0,2.0,4.5,0.2,3.0,snacks
+Hemp seeds (1 tbsp),55,1.5,3.0,4.5,0.2,1.0,snacks
+Greek yogurt (1 cup non‑fat),130,9.0,23.0,0.5,9.0,0.0,snacks
+Cottage cheese (1/2 cup low‑fat),80,3.0,14.0,1.0,2.0,0.0,snacks
+String cheese (1 piece),80,1.0,8.0,5.0,0.5,0.0,snacks
+Cottage cheese with pineapple (1/2 cup),100,8.0,10.0,2.0,6.0,0.5,snacks
+Yogurt drink (1 cup low‑fat),120,18.0,8.0,2.0,16.0,0.0,snacks
+Carrot sticks (1 cup),50,12.0,1.0,0.3,6.0,3.5,snacks
+Celery sticks (1 cup),15,3.0,0.7,0.2,1.5,1.5,snacks
+Bell pepper strips (1 cup),30,6.0,1.0,0.3,4.0,2.0,snacks
+Cucumber slices (1 cup),15,3.0,0.5,0.2,1.5,1.0,snacks
+Cherry tomatoes (1 cup),30,6.0,1.5,0.3,4.0,2.0,snacks
+Broccoli florets (1 cup raw),30,6.0,2.5,0.3,1.5,2.5,snacks
+Cauliflower florets (1 cup raw),25,5.0,2.0,0.3,2.0,2.0,snacks
+Sugar snap peas (1 cup),40,7.0,2.5,0.2,3.0,2.5,snacks
+Hummus (2 tbsp),70,4.0,2.0,5.0,0.5,1.5,snacks
+Guacamole (2 tbsp),50,3.0,0.7,4.5,0.5,2.0,snacks
+Peanut butter (1 tbsp natural),95,3.0,4.0,8.0,1.5,1.0,snacks
+Almond butter (1 tbsp),98,3.0,3.0,9.0,1.0,1.5,snacks
+Tzatziki (2 tbsp),30,2.0,1.5,2.0,1.5,0.5,snacks
+Air‑popped popcorn (3 cups),90,18.0,3.0,1.0,0.2,3.5,snacks
+"Rice cakes (2 cakes, brown rice)",70,14.0,1.5,0.5,0.2,0.5,snacks
+Whole grain crackers (5 pieces),100,16.0,2.0,3.0,1.0,2.0,snacks
+Oatcakes (2 pieces),80,14.0,2.0,2.0,1.0,2.0,snacks
+"Trail mix (1 oz, no candy)",130,12.0,4.0,8.0,5.0,2.5,snacks
+"Granola bar (healthy, 1 bar)",120,18.0,3.0,4.0,6.0,2.0,snacks
+"Protein bar (1 bar, clean ingredients)",200,20.0,15.0,8.0,5.0,3.0,snacks
+Roasted chickpeas (1/4 cup),120,20.0,5.0,2.0,2.0,5.0,snacks
+Edamame (1/2 cup shelled),95,7.0,8.0,4.0,2.0,4.0,snacks
+Roasted seaweed snacks (1 pack),30,4.0,2.0,1.0,0.0,1.0,snacks
+"Berry smoothie (1 cup, no sugar)",120,25.0,3.0,1.5,15.0,4.0,snacks
+"Green smoothie (1 cup, spinach, apple)",100,22.0,3.0,1.0,12.0,4.0,snacks
+"Protein smoothie (1 cup, whey, fruit)",180,20.0,20.0,2.0,10.0,3.0,snacks
+"Mango lassi (light, 1 cup)",140,22.0,5.0,3.0,18.0,1.0,snacks
+Hard‑boiled egg (1),70,0.5,6.0,5.0,0.5,0.0,snacks
+"Dark chocolate (70%+, 1 square)",50,3.0,0.8,3.5,1.5,1.0,snacks
+"Apple sauce (unsweetened, 1/2 cup)",50,13.0,0.2,0.1,10.0,1.5,snacks
