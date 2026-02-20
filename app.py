@@ -446,7 +446,6 @@ def generate_exercise_plan(user_input, models):
         "Session Duration (minutes)": duration_minutes,
         "Estimated Calories Burned": calories
     }
-# Add this function in the helper section (after the existing functions, before the UI)
 
 def recommend_yoga(experience_level, goal, age=None):
     """
@@ -635,14 +634,13 @@ def main():
             st.metric("Session Duration", f"{ex['Session Duration (minutes)']} min")
         with col4:
             st.metric("Calories Burned", f"{ex['Estimated Calories Burned']} kcal")
-        # Yoga Recommendations (new expander)
-        with st.expander("🧘 Yoga Recommendations"):
-            if st.button("Get Yoga Suggestions"):
-                yoga_poses = recommend_yoga(experience, goal, age)
-                for pose in yoga_poses:
-                    st.markdown(f"**{pose['name']}**  \n{pose['desc']}")
-            else:
-                st.info("Click the button above to receive personalized yoga pose recommendations.")
+
+        # Yoga Recommendations (auto‑generated)
+        with st.expander("🧘 Yoga Recommendations", expanded=False):
+            yoga_poses = recommend_yoga(experience, goal, age)
+            for pose in yoga_poses:
+                st.markdown(f"**{pose['name']}**  \n{pose['desc']}")
+
         # Diet Plan
         st.subheader("🍽️ Daily Diet Plan")
         diet = result["Recommended Diet"]
@@ -675,5 +673,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
