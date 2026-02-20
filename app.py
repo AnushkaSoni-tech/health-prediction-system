@@ -34,7 +34,7 @@ def load_data():
     return df
 
 # -------------------------------------------------------------------
-# 2. ALL HELPER FUNCTIONS (copied from your notebook, with minor fixes)
+# 2. ALL HELPER FUNCTIONS
 # -------------------------------------------------------------------
 def bmi_class(weight, height):
     bmi = weight / ((height/100) ** 2)
@@ -74,7 +74,7 @@ def classify_food(name):
         return "protein_fatty"
     if any(x in name for x in ["brown rice", "roti", "chapati", "oat", "quinoa", "poha", "dalia", "whole wheat"]):
         return "carb_complex"
-    if any(x in name for x in ["white rice", "bread", "pasta", "noodle", "maida", "sugar", "sweet"]):
+    if any(x in name for x in ["white rice", "bread", "sugar", "sweet"]):
         return "carb_simple"
     if any(x in name for x in ["apple", "banana", "orange", "fruit", "berry", "mango", "grapes"]):
         return "fruit"
@@ -158,9 +158,9 @@ def filter_diet(df, mode):
     return df
 
 meal_allowed_categories = {
-    "breakfast": ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "fruit", "vegetable"],
-    "lunch":     ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable", "fruit"],
-    "dinner":    ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable", "fruit"],
+    "breakfast": ["protein_lean", "protein_fatty", "carb_simple", "fruit", "vegetable"],
+    "lunch":     ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable"],
+    "dinner":    ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable"],
     "snacks":    ["fruit", "vegetable", "protein_lean", "carb_complex"]
 }
 
@@ -194,9 +194,9 @@ def build_meal(df, target_cal, used_foods, meal_name, fat_cap_per_meal=None, goa
 
     # Category order based on meal type
     if meal_name == "breakfast":
-        category_order = ["carb_complex", "carb_simple", "fruit", "protein_lean", "protein_fatty", "vegetable", "other"]
+        category_order = [ "carb_simple", "fruit", "protein_lean", "protein_fatty", "vegetable", "other"]
     elif meal_name in ["lunch", "dinner"]:
-        category_order = ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable", "fruit", "other"]
+        category_order = ["protein_lean", "protein_fatty", "carb_complex", "carb_simple", "vegetable","other"]
     else:  # snacks
         category_order = ["fruit", "vegetable", "protein_lean", "carb_complex", "carb_simple", "other"]
 
@@ -559,3 +559,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
