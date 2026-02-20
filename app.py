@@ -488,8 +488,6 @@ def recommend_yoga(experience_level, goal, age=None):
         # Beginner poses
         {"name": "Mountain Pose (Tadasana)", "level": "beginner", "benefit": "maintenance", 
          "desc": "Stand tall, feet together, arms at sides. Improves posture and body awareness."},
-        {"name": "Downward-Facing Dog (Adho Mukha Svanasana)", "level": "beginner", "benefit": "weight_loss",
-         "desc": "Inverted V‑shape. Strengthens arms, legs, and back; energizes the body."},
         {"name": "Child's Pose (Balasana)", "level": "beginner", "benefit": "maintenance",
          "desc": "Kneel, sit back on heels, fold forward. Restorative; relieves stress."},
         {"name": "Cat-Cow Stretch (Marjaryasana-Bitilasana)", "level": "beginner", "benefit": "maintenance",
@@ -697,8 +695,9 @@ def main():
                     st.info("No foods selected for this meal.")
 
         # Optional: Show full daily totals
-        all_meals_df = pd.concat([diet[m] for m in meals_order if not diet[m].empty], ignore_index=True)
-        if not all_meals_df.empty:
+        non_empty_meals = [diet[m] for m in meals_order if not diet[m].empty]
+        if non_empty_meals:
+            all_meals_df = pd.concat(non_empty_meals, ignore_index=True)
             total_day_cal = all_meals_df["Caloric Value"].sum()
             total_prot = all_meals_df["Protein"].sum()
             total_carb = all_meals_df["Carbohydrates"].sum()
