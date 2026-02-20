@@ -151,10 +151,13 @@ def medical_filter(df, conditions):
     return df
 
 def filter_diet(df, mode):
-    if mode == "diabetic":
-        return df[df["Sugars"] < 8]
-    elif mode == "high_protein":
+    # mode: 'normal', 'high_protein', 'low_carb'
+    if mode == "high_protein":
         return df[df["Protein"] > 15]
+    elif mode == "low_carb":
+        # Define low carb as < 20g carbohydrates per serving
+        return df[df["Carbohydrates"] < 20]
+    # normal mode: no extra filter
     return df
 
 # Expanded allowed categories to include all relevant types for each meal
@@ -383,7 +386,11 @@ def diet_planner(df, daily_cal, activity_level=None,
     return plan
 
 def generate_exercise_plan(user_input, models):
-    """user_input = [age, gender_num, bmi, experience]"""
+    """
+    user_input = [age, gender_num, bmi, experience]
+    Returns a list of workout plans (dictionaries). The first is the ML‑predicted plan,
+    followed by 1‑2 rule‑based alternatives.
+    """
     # Unpack models
     workout_model = models["workout_model"]
     workout_scaler = models["workout_scaler"]
@@ -396,56 +403,70 @@ def generate_exercise_plan(user_input, models):
     cal_model = models["cal_model"]
     cal_scaler = models["cal_scaler"]
 
-    # 1. Workout type
-    workout_input = [user_input[:4]]  # Age, Gender, BMI, Experience
+    # Helper to compute a plan for a given workout type
+    def compute_plan(workout_type):
+        encoded = freq_encoder.transform([workout_type])[0]
+        # Frequency
+        freq_features = [
+            user_input[0],   # Age
+            user_input[1],   # Gender
+            user_input[3],   # Experience
+            user_input[2],   # BMI
+            encoded
+        ]
+        freq_input = freq_scaler.transform([freq_features])
+        freq = int(freq_model.predict(freq_input)[0])
+
+        # Duration
+        dur_features = [
+            user_input[0],
+            user_input[1],
+            user_input[3],
+            user_input[2],
+            encoded
+        ]
+        dur_input = dur_scaler.transform([dur_features])
+        duration_hours = float(dur_model.predict(dur_input)[0])
+        duration_minutes = round(duration_hours * 60)
+        duration_minutes = max(15, min(duration_minutes, 180))
+
+        # Calories
+        calorie_features = [
+            user_input[0],
+            user_input[1],
+            user_input[3],
+            user_input[2],
+            encoded,
+            duration_hours
+        ]
+        calorie_scaled = cal_scaler.transform([calorie_features])
+        calories = float(cal_model.predict(calorie_scaled)[0])
+        calories = round(max(50, min(calories, 1200)))
+
+        return {
+            "Workout Type": workout_type,
+            "Workout Frequency (days/week)": freq,
+            "Session Duration (minutes)": duration_minutes,
+            "Estimated Calories Burned": calories
+        }
+
+    # 1. Primary (ML) workout type
+    workout_input = [user_input[:4]]
     workout_input_scaled = workout_scaler.transform(workout_input)
     workout_pred = workout_model.predict(workout_input_scaled)
-    workout_type = workout_encoder.inverse_transform(workout_pred)[0]
+    primary_type = workout_encoder.inverse_transform(workout_pred)[0]
 
-    # 2. Frequency
-    encoded_workout = freq_encoder.transform([workout_type])[0]
-    freq_features = [
-        user_input[0],   # Age
-        user_input[1],   # Gender
-        user_input[3],   # Experience
-        user_input[2],   # BMI
-        encoded_workout
-    ]
-    freq_input = freq_scaler.transform([freq_features])
-    freq = int(freq_model.predict(freq_input)[0])
+    plans = [compute_plan(primary_type)]
 
-    # 3. Duration
-    dur_features = [
-        user_input[0],
-        user_input[1],
-        user_input[3],
-        user_input[2],
-        encoded_workout
-    ]
-    dur_input = dur_scaler.transform([dur_features])
-    duration_hours = float(dur_model.predict(dur_input)[0])
-    duration_minutes = round(duration_hours * 60)
-    duration_minutes = max(15, min(duration_minutes, 180))
+    # 2. Add 1‑2 alternative types based on goal or complement
+    all_types = list(workout_encoder.classes_)
+    # Remove primary to get alternatives
+    alternatives = [t for t in all_types if t != primary_type]
+    # Pick up to 2 alternatives (e.g., first two)
+    for alt in alternatives[:2]:
+        plans.append(compute_plan(alt))
 
-    # 4. Calories
-    calorie_features = [
-        user_input[0],
-        user_input[1],
-        user_input[3],
-        user_input[2],
-        encoded_workout,
-        duration_hours
-    ]
-    calorie_scaled = cal_scaler.transform([calorie_features])
-    calories = float(cal_model.predict(calorie_scaled)[0])
-    calories = round(max(50, min(calories, 1200)))
-
-    return {
-        "Workout Type": workout_type,
-        "Workout Frequency (days/week)": freq,
-        "Session Duration (minutes)": duration_minutes,
-        "Estimated Calories Burned": calories
-    }
+    return plans
 
 def recommend_yoga(experience_level, goal, age=None):
     """
@@ -518,14 +539,31 @@ def recommend_yoga(experience_level, goal, age=None):
 
     return recommended[:5]  # limit to 5 poses
 
-def health_fitness_system(age, gender, weight, height, activity_level, goal,
-                          preference, experience, mode, conditions, df, models):
+def health_fitness_system(age, gender, weight, height, activity_level, goal_display,
+                          preference, experience, mode_display, conditions, df, models):
+    # Map display goal to internal string
+    goal_map = {
+        "Weight Loss": "weight_loss",
+        "Weight Gain": "muscle_gain",   # treat as muscle gain (calorie surplus)
+        "Muscle Gain": "muscle_gain",
+        "Maintenance": "maintenance"
+    }
+    goal = goal_map[goal_display]
+
+    # Map display mode to internal string
+    mode_map = {
+        "Normal": "normal",
+        "High Protein": "high_protein",
+        "Low Carb": "low_carb"
+    }
+    mode = mode_map[mode_display]
+
     gender_num = 1 if gender.lower() == 'male' else 0
     bmi_value = weight / ((height/100) ** 2)
     bmi_category = bmi_class(weight, height)
 
-    # Exercise plan
-    exercise_plan = generate_exercise_plan([age, gender_num, bmi_value, experience], models)
+    # Exercise plan (now returns a list)
+    exercise_plans = generate_exercise_plan([age, gender_num, bmi_value, experience], models)
 
     # Diet plan
     tdee = calculate_tdee(age, gender, weight, height, activity_level)
@@ -541,7 +579,7 @@ def health_fitness_system(age, gender, weight, height, activity_level, goal,
 
     return {
         "BMI Class": bmi_category,
-        "Exercise Plan": exercise_plan,
+        "Exercise Plans": exercise_plans,
         "Recommended Diet": diet_plan
     }
 
@@ -571,9 +609,9 @@ def main():
             "Activity Level",
             ["sedentary", "light", "moderate", "active", "very_active"]
         )
-        goal = st.selectbox(
+        goal_display = st.selectbox(
             "Primary Goal",
-            ["weight_loss", "muscle_gain", "maintenance"]
+            ["Weight Loss", "Weight Gain", "Muscle Gain", "Maintenance"]
         )
         preference = st.selectbox(
             "Diet Preference",
@@ -583,9 +621,9 @@ def main():
             "Exercise Experience (1 = beginner, 4 = expert)",
             min_value=1, max_value=4, value=2, step=1
         )
-        mode = st.selectbox(
+        mode_display = st.selectbox(
             "Diet Mode",
-            ["normal", "diabetic", "high_protein"]
+            ["Normal", "High Protein", "Low Carb"]
         )
         conditions = st.multiselect(
             "Medical Conditions (if any)",
@@ -607,10 +645,10 @@ def main():
                 weight=weight,
                 height=height,
                 activity_level=activity_level,
-                goal=goal,
+                goal_display=goal_display,
                 preference=pref,
                 experience=experience,
-                mode=mode,
+                mode_display=mode_display,
                 conditions=conds,
                 df=df,
                 models=models
@@ -622,22 +660,24 @@ def main():
         # BMI
         st.subheader(f"📊 BMI Category: **{result['BMI Class']}**")
 
-        # Exercise Plan
-        st.subheader("💪 Exercise Plan")
-        ex = result["Exercise Plan"]
-        col1, col2, col3, col4 = st.columns(4)
-        with col1:
-            st.metric("Workout Type", ex["Workout Type"])
-        with col2:
-            st.metric("Frequency", f"{ex['Workout Frequency (days/week)']} days/week")
-        with col3:
-            st.metric("Session Duration", f"{ex['Session Duration (minutes)']} min")
-        with col4:
-            st.metric("Calories Burned", f"{ex['Estimated Calories Burned']} kcal")
+        # Exercise Plans (now multiple)
+        st.subheader("💪 Exercise Plans")
+        ex_plans = result["Exercise Plans"]
+        # Create a set of columns for each plan (max 3)
+        cols = st.columns(len(ex_plans))
+        for i, plan in enumerate(ex_plans):
+            with cols[i]:
+                st.markdown(f"**Option {i+1}**")
+                st.metric("Workout Type", plan["Workout Type"])
+                st.metric("Frequency", f"{plan['Workout Frequency (days/week)']} days/week")
+                st.metric("Session Duration", f"{plan['Session Duration (minutes)']} min")
+                st.metric("Calories Burned", f"{plan['Estimated Calories Burned']} kcal")
 
         # Yoga Recommendations (auto‑generated)
         with st.expander("🧘 Yoga Recommendations", expanded=False):
-            yoga_poses = recommend_yoga(experience, goal, age)
+            # Need internal goal string
+            goal_internal = "weight_loss" if "Weight Loss" in goal_display else "muscle_gain" if "Gain" in goal_display else "maintenance"
+            yoga_poses = recommend_yoga(experience, goal_internal, age)
             for pose in yoga_poses:
                 st.markdown(f"**{pose['name']}**  \n{pose['desc']}")
 
